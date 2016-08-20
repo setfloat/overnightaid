@@ -1,3 +1,5 @@
+/* eslint-disable camelcase, max-len */
+
 'use strict';
 
 exports.seed = function(knex) {
@@ -27,10 +29,11 @@ exports.seed = function(knex) {
         created_at: new Date('2016-07-26 14:26:16 UTC'),
         updated_at: new Date('2016-07-26 14:26:16 UTC')
       }
-      ])
+    ])
   )
-  .then(() knex.raw(
-    "SELECT setval('items_orders_id_seq', (SELECT MAX(id) FROM items_orders));"
-      )
+  .then(() => {
+    return knex.raw(
+      "SELECT setval('items_orders_id_seq', (SELECT MAX(id) FROM items_orders));"
     );
+  });
 };
