@@ -43,7 +43,7 @@ const orders = require('./routes/orders');
 const token = require('./routes/token');
 const users = require('./routes/users');
 
-app.use('/api', items);
+app.use(items);
 app.use('/api', orders);
 app.use('/api', token);
 app.use('/api', users);
