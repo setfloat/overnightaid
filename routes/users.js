@@ -43,16 +43,3 @@ router.post('/users', ev(validations.post), (req, res, next) => {
       next(err);
     });
 });
-
-router.get('/users', (_req, res, next) => {
-  knex('users')
-    .orderBy('id')
-    .then((rows) => {
-      const newRows = camelizeKeys(rows);
-
-      res.send(newRows);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
