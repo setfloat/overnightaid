@@ -11,7 +11,7 @@ const validations = require('../validations/users');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
-router.post('orders', checkAuth, ev(validations.post), (req, res, next) => {
+router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
   const {
     addressFullName,
     addressLine1,
