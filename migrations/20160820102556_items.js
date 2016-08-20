@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('items', (table) => {
     table.increments();
-    table.string('item_name').notNullable().defautTo('').unique();
+    table.string('item_name').notNullable().defaultTo('').unique();
     table.string('display_name').notNullable().defaultTo('').unique();
     table.text('description').notNullable().defaultTo('');
     table.string('category').notNullable().defaultTo('');

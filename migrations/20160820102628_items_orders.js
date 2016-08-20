@@ -16,7 +16,7 @@ exports.up = function(knex) {
       .index();
     table.string('item_clothing_size')
       .defaultTo(null);
-    table.interger('quantity')
+    table.integer('quantity')
       .notNullable()
       .defaultTo(1);
     table.timestamps(true, true);
