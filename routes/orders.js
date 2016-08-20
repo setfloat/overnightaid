@@ -2,7 +2,7 @@
 'use strict';
 
 const { camelizeKeys, decamelizeKeys } = require('humps');
-const checkAuth = require('../middleware');
+const { checkAuth } = require('../middleware');
 const ev = require('express-validation');
 const express = require('express');
 const knex = require('../knex');
