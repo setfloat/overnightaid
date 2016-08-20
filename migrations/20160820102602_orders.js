@@ -20,7 +20,7 @@ exports.up = function(knex) {
       .notNullable();
     table.specificType('address_state', 'char(2)')
       .notNullable();
-    table.specificType('address_zip', 'char(5)')
+    table.specificType('address_zip', 'char(10)')
       .notNullable();
     table.timestamps(true, true);
   });
