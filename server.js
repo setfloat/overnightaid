@@ -38,7 +38,9 @@ const cookieParser = require('cookie-parser');
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// Routes to be inserted here
+const token = require('./routes/token');
+
+app.use('/api', token);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
