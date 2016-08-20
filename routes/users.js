@@ -43,3 +43,5 @@ router.post('/users', ev(validations.post), (req, res, next) => {
       next(err);
     });
 });
+
+module.exports = router;

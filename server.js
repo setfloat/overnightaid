@@ -1,5 +1,9 @@
 'use strict';
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({ silent: true });
+}
+
 const express = require('express');
 const app = express();
 
@@ -44,16 +48,36 @@ const token = require('./routes/token');
 const users = require('./routes/users');
 
 app.use(items);
-app.use('/api', orders);
+app.use(orders);
 app.use('/api', token);
 app.use('/api', users);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+// eslint-disable-next-line max-params
+app.use((err, _req, res, _next) => {
+  // status from validations, output.statusCode from boom
+  if (err.status || (err.output && err.output.statusCode)) {
+    return res
+      .status(err.status || err.output.statusCode)
+      .set('Content-Type', 'text/plain')
+      .send(err.message);
+  }
+
+  // eslint-disable-next-line no-console
+  console.error(err.stack);
+  res.sendStatus(500);
+});
+
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log('Listening on port', port);
+  if (app.get('env') !== 'test') {
+    // eslint-disable-next-line no-console
+    console.log('Listening on port', port);
+  }
 });
+
+module.exports = app;

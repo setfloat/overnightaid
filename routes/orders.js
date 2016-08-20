@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 'use strict';
 
 const { camelizeKeys, decamelizeKeys } = require('humps');
@@ -12,7 +11,7 @@ const validations = require('../validations/orders');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
-router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
+router.post('orders', checkAuth, ev(validations.post), (req, res, next) => {
   const {
     addressFullName,
     addressLine1,

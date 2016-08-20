@@ -1,6 +1,6 @@
 'use strict';
 
-const Joi = require('');
+const Joi = require('joi');
 
 module.exports.post = {
   body: {
@@ -15,7 +15,7 @@ module.exports.post = {
       .trim(),
     addressCity: Joi.string()
       .label('City')
-      .max()
+      .max(255)
       .required()
       .trim(),
     addressState: Joi.string()
