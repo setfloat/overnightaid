@@ -39,8 +39,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 const token = require('./routes/token');
+const users = require('./routes/users');
 
 app.use('/api', token);
+app.use('/api', users);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
