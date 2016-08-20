@@ -2,9 +2,9 @@
 exports.up = function(knex) {
   return knex.schema.createTable('items_orders', (table) => {
     table.increments();
-    table.integer('users_id')
+    table.integer('orders_id')
       .references('id')
-      .inTable('users')
+      .inTable('orders')
       .onDelete('CASCADE')
       .notNullable()
       .index();
