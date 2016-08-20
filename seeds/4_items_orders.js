@@ -10,6 +10,7 @@ exports.seed = function(knex) {
         orders_id: 1,
         items_id: 1,
         item_clothing_size: 'small',
+        quantity: 1,
         created_at: new Date('2016-07-26 14:26:16 UTC'),
         updated_at: new Date('2016-07-26 14:26:16 UTC')
       },
@@ -18,6 +19,7 @@ exports.seed = function(knex) {
         orders_id: 1,
         items_id: 2,
         item_clothing_size: 'large',
+        quantity: 1,
         created_at: new Date('2016-07-26 14:26:16 UTC'),
         updated_at: new Date('2016-07-26 14:26:16 UTC')
       },
@@ -26,6 +28,7 @@ exports.seed = function(knex) {
         orders_id: 2,
         items_id: 1,
         item_clothing_size: 'medium',
+        quantity: 1,
         created_at: new Date('2016-07-26 14:26:16 UTC'),
         updated_at: new Date('2016-07-26 14:26:16 UTC')
       }

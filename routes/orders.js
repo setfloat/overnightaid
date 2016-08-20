@@ -1,12 +1,13 @@
+/* eslint-disable camelcase */
+
 'use strict';
 
 const { camelizeKeys, decamelizeKeys } = require('humps');
-const boom = require('boom');
 const checkAuth = require('../middleware');
 const ev = require('express-validation');
 const express = require('express');
 const knex = require('../knex');
-const validations = require('../validations/users');
+const validations = require('../validations/orders');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -18,7 +19,8 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
     addressLine2,
     addressCity,
     addressState,
-    addressZip
+    addressZip,
+    items
   } = req.body;
   const { userId } = req.token;
   const newOrder = {
@@ -37,7 +39,28 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
     .then((rows) => {
       const order = camelizeKeys(rows[0]);
 
-      res.send(order);
+      for (const item of items) {
+        const itemId = Number.parseInt(item.id);
+        const quantity = Number.parseInt(item.quantity);
+
+        if ((itemId.isNaN() || itemId < 0) ||
+          (quantity.isNaN() || quantity < 0)) {
+          return knex('orders')
+            .where('id', order.id)
+            .first()
+            .del();
+        }
+
+        knex('items_orders')
+          .insert({
+            orders_id: order.id,
+            items_id: itemId,
+            item_clothing_size: item.size,
+            quantity
+          })
+          .catch((err) => next(err));
+      }
+      res.send(order.id);
     })
     .catch((err) => next(err));
 });
