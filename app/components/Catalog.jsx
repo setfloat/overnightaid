@@ -1,7 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 
-
 const stylePaper = {
       height: 100,
       width: 100,
