@@ -60,17 +60,10 @@ app.use((_req, res) => {
 app.use((err, _req, res, _next) => {
   // status from validations, output.statusCode from boom
   if (err.status || (err.output && err.output.statusCode)) {
-    if (err.message === 'validation error') {
-      return res
-        .status(err.status)
-        .set('Content-Type', 'text/plain')
-        .send(err.errors[0].messages[0]);
-    }
-
     return res
       .status(err.status || err.output.statusCode)
       .set('Content-Type', 'text/plain')
-      .send(err.message);
+      .send(err.errors[0].messages[0] || err.message);
   }
 
   // eslint-disable-next-line no-console
