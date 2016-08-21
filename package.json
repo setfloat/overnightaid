@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
-    "resetdb": "knex migrate:rollback; npm run knex migrate:latest; npm run knex seed:run",
+    "resetdb": "knex migrate:rollback; knex migrate:latest; knex seed:run",
     "knex": "knex"
   },
   "dependencies": {
