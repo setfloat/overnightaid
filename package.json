@@ -11,10 +11,11 @@
   "scripts": {
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
-    "resetdb": "npm run knex migrate:rollback; npm run knex migrate:latest; npm run knex seed:run",
+    "resetdb": "knex migrate:rollback; npm run knex migrate:latest; npm run knex seed:run",
     "knex": "knex"
   },
   "dependencies": {
+    "axios": "^0.13.1",
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
     "boom": "^3.2.2",

@@ -11,7 +11,7 @@ const stylePaper = {
       backgroundColor: '#E5FCFF'
     };
 
-const FamilyMembers = React.createClass({
+const Catalog = React.createClass({
   render() {
     return <div>
       <Paper style={stylePaper} zDepth={3} rounded={false} />
@@ -21,4 +21,4 @@ const FamilyMembers = React.createClass({
   }
 })
 
-export default FamilyMembers;
+export default Catalog;
