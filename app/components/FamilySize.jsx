@@ -13,9 +13,18 @@ const stylePaper = {
 const Catalog = React.createClass({
   render() {
     return <div>
-      <Paper rounded={false} style={stylePaper} zDepth={3} />
-      <Paper rounded={false} style={stylePaper} zDepth={3} />
-      <Paper rounded={false} style={stylePaper} zDepth={3} />
+      <Paper rounded={false} style={stylePaper} zDepth={3}>
+        Just Me!
+      </Paper>
+      <Paper rounded={false} style={stylePaper} zDepth={3}>
+        We are Two!
+      </Paper>
+      <Paper rounded={false} style={stylePaper} zDepth={3}>
+        We are Three!
+      </Paper>
+      <Paper rounded={false} style={stylePaper} zDepth={3}>
+        Four of Us!
+      </Paper>
     </div>;
   }
 });
