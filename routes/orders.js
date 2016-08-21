@@ -33,40 +33,73 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
     userId
   };
   const row = decamelizeKeys(newOrder);
+  let order;
 
   knex('orders')
     .insert(row, '*')
     .then((rows) => {
-      const order = camelizeKeys(rows[0]);
+      order = camelizeKeys(rows[0]);
 
-      for (const item of items) {
+      // for (const item of items) {
+      //   const itemId = Number.parseInt(item.id);
+      //   const quantity = Number.parseInt(item.quantity);
+      //
+      //   // ASK POWERS THAT BE IF THIS CAN BE MORE ELEGENT
+      //   if (Number.isNaN(itemId) || itemId < 0 ||
+      //     Number.isNaN(quantity) || quantity < 0) {
+      //     return knex('orders')
+      //       .where('id', order.id)
+      //       .first()
+      //       .del()
+      //       .then(() => {
+      //         throw boom.create(400, 'An item in order is not valid');
+      //       })
+      //       .catch((err) => next(err));
+      //   }
+
+      return Promise.all(items.map((item) => {
         const itemId = Number.parseInt(item.id);
         const quantity = Number.parseInt(item.quantity);
 
-        // ASK POWERS THAT BE IF THIS CAN BE MORE ELEGENT
-        if (Number.isNaN(itemId) || itemId < 0 ||
-          Number.isNaN(quantity) || quantity < 0) {
+        if (Number.isNaN(itemId) || itemId < 0 || Number.isNaN(quantity) ||
+          quantity < 0) {
           return knex('orders')
             .where('id', order.id)
             .first()
             .del()
             .then(() => {
               throw boom.create(400, 'An item in order is not valid');
-            })
-            .catch((err) => next(err));
+            });
         }
 
-        knex('items_orders')
-          .insert({
-            orders_id: order.id,
-            items_id: itemId,
-            item_clothing_size: item.size,
-            quantity
-          })
-          .catch((err) => next(err));
-      }
+        const data = {
+          orders_id: order.id,
+          items_id: itemId,
+          item_clothing_size: item.size,
+          quantity
+        };
+
+        return knex('items_orders')
+          .insert(data, '*');
+      }));
+
+      //   knex('items_orders')
+      //     .insert({
+      //       orders_id: order.id,
+      //       items_id: itemId,
+      //       item_clothing_size: item.size,
+      //       quantity
+      //     })
+      //     .catch((err) => next(err));
+      // }
+    })
+    .then(() => {
       res.send(`${order.id}`);
     })
+
+    // .catch((err) => {
+    //   if (err.data)
+    // })
     .catch((err) => next(err));
 });
 

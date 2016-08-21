@@ -58,12 +58,20 @@ app.use((_req, res) => {
 
 // eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
-  // status from validations, output.statusCode from boom
-  if (err.status || (err.output && err.output.statusCode)) {
+  // joi error
+  if (err.status) {
     return res
-      .status(err.status || err.output.statusCode)
+      .status(err.status)
       .set('Content-Type', 'text/plain')
-      .send(err.errors[0].messages[0] || err.message);
+      .send(err.errors[0].messages[0]);
+  }
+
+  // boom error
+  if (err.output.statusCode) {
+    return res
+      .status(err.output.statusCode)
+      .set('Content-Type', 'text/plain')
+      .send(err.message);
   }
 
   // eslint-disable-next-line no-console
