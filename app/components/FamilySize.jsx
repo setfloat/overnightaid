@@ -13,11 +13,11 @@ const stylePaper = {
 const Catalog = React.createClass({
   render() {
     return <div>
-      <Paper style={stylePaper} zDepth={3} rounded={false} />
-      <Paper style={stylePaper} zDepth={3} rounded={false} />
-      <Paper style={stylePaper} zDepth={3} rounded={false} />
-      </div>
+      <Paper rounded={false} style={stylePaper} zDepth={3} />
+      <Paper rounded={false} style={stylePaper} zDepth={3} />
+      <Paper rounded={false} style={stylePaper} zDepth={3} />
+    </div>;
   }
-})
+});
 
 export default Catalog;
