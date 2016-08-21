@@ -2,31 +2,42 @@ import Paper from 'material-ui/Paper';
 import React from 'react';
 
 const stylePaper = {
-  height: 100,
-  width: 100,
+  height: 250,
+  width: 300,
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
-  backgroundColor: '#E5FCFF'
+  backgroundColor: '#E5FCFF',
+  border: 'solid',
+  borderColor: '#FA8072',
+  borderWidth: '1px'
 };
 
-const Catalog = React.createClass({
+const FamilySize = React.createClass({
   render() {
-    return <div>
-      <Paper rounded={false} style={stylePaper} zDepth={3}>
+    return <div className="flexContainer">
+      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
+        <div className="flexItem">
         Just Me!
+        </div>
       </Paper>
-      <Paper rounded={false} style={stylePaper} zDepth={3}>
-        We are Two!
+      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
+        <div className="flexItem">
+          We are Two!
+        </div>
       </Paper>
-      <Paper rounded={false} style={stylePaper} zDepth={3}>
-        We are Three!
+      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
+        <div className="flexItem">
+          We are Three!
+        </div>
       </Paper>
-      <Paper rounded={false} style={stylePaper} zDepth={3}>
-        Four of Us!
+      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
+        <div className="flexItem">
+          Four of Us!
+        </div>
       </Paper>
     </div>;
   }
 });
 
-export default Catalog;
+export default FamilySize;
