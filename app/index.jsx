@@ -1,11 +1,11 @@
-import Routes from 'components/Routes';
-// import App from 'components/App';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Routes from 'components/Routes';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { red500, red100 } from 'material-ui/styles/colors';
+
+// import App from 'components/App';
 
 injectTapEventPlugin();
 
