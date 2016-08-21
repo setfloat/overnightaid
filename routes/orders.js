@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 'use strict';
 
+const boom = require('boom');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const { checkAuth } = require('../middleware');
 const ev = require('express-validation');
@@ -11,7 +12,7 @@ const validations = require('../validations/orders');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
-router.post('orders', checkAuth, ev(validations.post), (req, res, next) => {
+router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
   const {
     addressFullName,
     addressLine1,
@@ -42,12 +43,17 @@ router.post('orders', checkAuth, ev(validations.post), (req, res, next) => {
         const itemId = Number.parseInt(item.id);
         const quantity = Number.parseInt(item.quantity);
 
-        if ((itemId.isNaN() || itemId < 0) ||
-          (quantity.isNaN() || quantity < 0)) {
+        // ASK POWERS THAT BE IF THIS CAN BE MORE ELEGENT
+        if (Number.isNaN(itemId) || itemId < 0 ||
+          Number.isNaN(quantity) || quantity < 0) {
           return knex('orders')
             .where('id', order.id)
             .first()
-            .del();
+            .del()
+            .then(() => {
+              throw boom.create(400, 'An item in order is not valid');
+            })
+            .catch((err) => next(err));
         }
 
         knex('items_orders')
@@ -59,7 +65,7 @@ router.post('orders', checkAuth, ev(validations.post), (req, res, next) => {
           })
           .catch((err) => next(err));
       }
-      res.send(order.id);
+      res.send(`${order.id}`);
     })
     .catch((err) => next(err));
 });

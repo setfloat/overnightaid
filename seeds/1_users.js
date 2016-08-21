@@ -40,7 +40,17 @@ exports.seed = function(knex) {
         hashed_password: '$2a$12$e1rLWAJmEOhD/6uBZ.IME.NOzqu86YIH3eClih.6UewqBRUNP/QyS',
         created_at: new Date('2016-07-26 14:26:16 UTC'),
         updated_at: new Date('2016-07-26 14:26:16 UTC')
-      }])
+      },
+      {
+        id: 5,
+        email: 'stanley@paddles.net',
+
+        // eslint-disable-next-line max-len
+        hashed_password: '$2a$12$oUMS2tVk4HT3MX5L5f31oOJHzyOgKwShyeXXKw.5cvNJC.TjZ3XI.',
+        created_at: new Date('2016-07-26 14:26:16 UTC'),
+        updated_at: new Date('2016-07-26 14:26:16 UTC')
+      }
+    ])
   )
   .then(() => {
     return knex.raw(
