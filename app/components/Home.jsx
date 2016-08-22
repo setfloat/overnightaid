@@ -1,4 +1,3 @@
-import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -17,26 +16,13 @@ const Home = React.createClass({
       flexWrap: 'nowrap'
     };
 
-    const styleRaisedButton = {
-      display: 'flex',
-      height: '50px',
-      width: '150px'
-    };
-
     const styleFlex = {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
       alignContent: 'center',
       flexWrap: 'nowrap',
-      marginBottom: '50px',
-      fontSize: '6em',
-      // color: 'white'
-    };
-
-    const styleRaisedButtonLabel = {
-      fontSize: '20px',
-      textAlign: 'right'
+      marginBottom: '50px'
     };
 
     const lrgBtnClassNames = classNames({
@@ -45,8 +31,13 @@ const Home = React.createClass({
     });
 
     return <div style={styleDiv}>
-      <div style={styleFlex}>Lorem Ipsum</div>
-      <input type="button" className={lrgBtnClassNames}  value="Place An Order" />
+      <div className="title" style={styleFlex}>Lorem Ipsum</div>
+      <input
+        className={lrgBtnClassNames}
+        style={styleFlex}
+        type="button"
+        value="Place An Order"
+      />
     </div>;
   }
 });
