@@ -6,19 +6,24 @@ import TextField from 'material-ui/TextField';
 const schema = Joi.object({
   addressFullName: Joi.string().trim().max(255),
   addressLine1: Joi.string().trim().max(40),
-  addressLine2: Joi.string().trim().max(40),
+  addressLine2: Joi.string().trim().allow('').max(40),
   addressCity: Joi.string().trim().max(40),
-  addressState: Joi.string().trim(),
+  addressState: Joi.string().trim().min(2).max(2),
   addressZip: Joi.string().trim().min(5).max(10)
 });
 
-const styleAddressForm = {
-  height: 300,
-  width: 200,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-  backgroundColor: '#E5FCFF'
+const styles = {
+  headline: {
+    fontSize: 36,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 400
+  },
+  loginContent: {
+    fontSize: 24,
+    maxWidth: '95%',
+    padding: '5%'
+  }
 };
 
 const AddressForm = React.createClass({
@@ -67,9 +72,10 @@ const AddressForm = React.createClass({
     return <main>
       <Paper
         rounded={false}
-        style={styleAddressForm}
+        style={styles.loginContent}
         zDepth={3}
       >
+      <h3 style={styles.headline}>Shipping Address</h3>
         <TextField
           errorText={errors.addressFullName}
           floatingLabelText="Full Name"
@@ -138,11 +144,6 @@ const AddressForm = React.createClass({
           // value={address.addressZip}
         />
       </Paper>
-      <Paper
-        rounded={false}
-        style={styleAddressForm}
-        zDepth={3}
-      />
     </main>;
   }
 });

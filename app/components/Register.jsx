@@ -78,7 +78,7 @@ const Register = React.createClass({
           // value={register.email}
         />
         <TextField
-          errorText={errors.pasword}
+          errorText={errors.password}
           floatingLabelText="Password"
           fullWidth={true}
           name="password"

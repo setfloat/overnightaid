@@ -64,20 +64,20 @@ const Login = React.createClass({
     };
 
     return <div style={styles.loginContent}>
-        <h2 style={styles.headline}>Login</h2>
-        <TextField
-          errorText={errors.email}
-          floatingLabelText="Email"
-          fullWidth={true}
-          name="email"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+      <h2 style={styles.headline}>Login</h2>
+      <TextField
+        errorText={errors.email}
+        floatingLabelText="Email"
+        fullWidth={true}
+        name="email"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
         // value={login.email}
       />
       <TextField
-        errorText={errors.pasword}
+        errorText={errors.password}
         floatingLabelText="Password"
         fullWidth={true}
         name="password"
