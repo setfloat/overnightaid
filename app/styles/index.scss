@@ -7,24 +7,20 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: space-between;    align-items: center;
+    // align-content: space-between;
+    // align-items: center;
+    // vertical-align: middle;
 }
 
 
 .flex-items {
-    width: 300px;
-    height: 250px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 0;
-    vertical-align: middle;
     justify-content: center;
     align-content: center;
 }
 
  .flex-item {
-    width: 300px;
-    height: 250px;
+   display: flex;
     justify-content: center;
     align-content: center;
+    vertical-align: middle;
 }
