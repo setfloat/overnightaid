@@ -25,3 +25,35 @@ body {
     align-content: center;
     vertical-align: middle;
 }
+
+.btnLarge {
+  font-size: 1.3em;
+  text-decoration: none;
+  color: #FFF;
+  background-color: #ACACDE;
+  text-align: center;
+  letter-spacing: .5px;
+  height: 54px;
+  line-height: 54px;
+  border: none;
+  border-radius: 2px;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  transition-timing-function: ease-out;
+  transition: .2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.wavesEffect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  transition-timing-function: ease-out;
+  transition: .3s;
+}
