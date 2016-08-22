@@ -1,5 +1,6 @@
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
+import classNames from 'classnames';
 
 const Home = React.createClass({
   render() {
@@ -34,15 +35,18 @@ const Home = React.createClass({
     };
 
     const styleRaisedButtonLabel = {
-      paddingTop: '100px',
       fontSize: '20px',
       textAlign: 'right'
     };
 
+    const lrgBtnClassNames = classNames({
+      btnLarge: true,
+      wavesEffect: true
+    });
+
     return <div style={styleDiv}>
       <div style={styleFlex}>Lorem Ipsum</div>
-      <RaisedButton label="Place An Order" primary={true}
-      labelStyle={styleRaisedButtonLabel} style={styleRaisedButton} />
+      <input type="button" className={lrgBtnClassNames}  value="Place An Order" />
     </div>;
   }
 });
