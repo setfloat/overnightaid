@@ -11,6 +11,7 @@ const validations = require('../validations/users');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+// Creates new user in users table
 router.post('/users', ev(validations.post), (req, res, next) => {
   const { email, password } = req.body;
 

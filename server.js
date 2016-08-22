@@ -36,12 +36,14 @@ app.use('/api', (req, res, next) => {
   res.sendStatus(406);
 });
 
+// Parsing Request Body & Cookies
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// Setting up & using routes
 const items = require('./routes/items');
 const orders = require('./routes/orders');
 const token = require('./routes/token');
@@ -52,13 +54,15 @@ app.use('/api', orders);
 app.use('/api', token);
 app.use('/api', users);
 
+// Catch all for client to handle client-side routing
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Server side error handler
 // eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
-  // joi error
+  // Joi error handler
   if (err.status) {
     return res
       .status(err.status)
@@ -66,7 +70,7 @@ app.use((err, _req, res, _next) => {
       .send(err.errors[0].messages[0]);
   }
 
-  // boom error
+  // Boom error handler
   if (err.output.statusCode) {
     return res
       .status(err.output.statusCode)
@@ -74,6 +78,7 @@ app.use((err, _req, res, _next) => {
       .send(err.message);
   }
 
+  // All other server errors
   // eslint-disable-next-line no-console
   console.error(err.stack);
   res.sendStatus(500);

@@ -12,6 +12,7 @@ const validations = require('../validations/orders');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+// Creates an order within database (tables: orders, items_orders)
 router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
   const {
     addressFullName,

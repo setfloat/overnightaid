@@ -7,6 +7,7 @@ const knex = require('../knex');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+// Returns all items within the items table
 router.get('/items', (req, res, next) => {
   knex('items')
     .orderBy('id')

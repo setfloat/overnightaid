@@ -5,13 +5,14 @@ const boom = require('boom');
 const { camelizeKeys } = require('humps');
 const ev = require('express-validation');
 const express = require('express');
-const knex = require('../knex');
 const jwt = require('jsonwebtoken');
+const knex = require('../knex');
 const validations = require('../validations/users');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+// Creates JWT for user authentication
 router.post('/token', ev(validations.post), (req, res, next) => {
   let user;
 
@@ -49,6 +50,7 @@ router.post('/token', ev(validations.post), (req, res, next) => {
     });
 });
 
+// Deletes JWT
 router.delete('/token', (req, res, _next) => {
   res.clearCookie('accessToken');
   res.clearCookie('loggedIn');
