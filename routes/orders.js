@@ -45,6 +45,10 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
         const itemId = Number.parseInt(item.id);
         const quantity = Number.parseInt(item.quantity);
 
+        if (!/^small$|^medium$|^large$/.test(item.size)) {
+          item.size = null;
+        }
+
         if (Number.isNaN(itemId) || itemId < 0 || Number.isNaN(quantity) ||
           quantity < 0) {
           return knex('orders')
