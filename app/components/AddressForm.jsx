@@ -78,6 +78,7 @@ const AddressForm = React.createClass({
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           style={styleTextField}
+
           // value={address.addressFullName}
         />
         <TextField
@@ -88,6 +89,7 @@ const AddressForm = React.createClass({
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           style={styleTextField}
+
           // value={address.addressLine1}
         />
         <TextField
@@ -98,6 +100,7 @@ const AddressForm = React.createClass({
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           style={styleTextField}
+
           // value={address.addressLine2}
         />
         <TextField
@@ -108,6 +111,7 @@ const AddressForm = React.createClass({
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           style={styleTextField}
+
           // value={address.addressCity}
         />
         <TextField
@@ -118,8 +122,10 @@ const AddressForm = React.createClass({
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           style={styleTextField}
+
           // value={address.addressState}
         />
+
         <TextField
           errorText={errors.addressZip}
           floatingLabelText="Zip Code"
@@ -128,6 +134,7 @@ const AddressForm = React.createClass({
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           style={styleTextField}
+
           // value={address.addressZip}
         />
       </Paper>
