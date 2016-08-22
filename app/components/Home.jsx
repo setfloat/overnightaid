@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const Home = React.createClass({
   render() {
-    const styleDiv = {
+    const styleMainDiv = {
       backgroundImage: 'url(support.jpg)',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -16,12 +16,7 @@ const Home = React.createClass({
       flexWrap: 'nowrap'
     };
 
-    const styleFlex = {
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      alignContent: 'center',
-      flexWrap: 'nowrap',
+    const styleFlexMain = {
       marginBottom: '50px'
     };
 
@@ -30,14 +25,50 @@ const Home = React.createClass({
       wavesEffect: true
     });
 
-    return <div style={styleDiv}>
-      <div className="title" style={styleFlex}>Lorem Ipsum</div>
-      <input
-        className={lrgBtnClassNames}
-        style={styleFlex}
-        type="button"
-        value="Place An Order"
-      />
+    const styleSecondDiv = {
+      backgroundColor: 'orange',
+      display: 'flex',
+      width: '100%',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      alignContent: 'space-between',
+      flexWrap: 'nowrap'
+    };
+
+    const stylePackageImg = {
+      height: '20em',
+      width: '30em'
+    };
+
+    const styleSecondDivText = {
+      fontSize: '1.7em'
+    };
+
+    return <div>
+      <div style={styleMainDiv}>
+        <div className="title" style={styleFlexMain}>Lorem Ipsum</div>
+        <input
+          className={lrgBtnClassNames}
+          style={styleFlexMain}
+          type="button"
+          value="Place An Order"
+        />
+      </div>
+      <div style={styleSecondDiv}>
+        <div className="packageImg">
+          <img
+            src="./packages.png"
+            style={stylePackageImg}
+          />
+        </div>
+        <div className="packageImg" style={styleSecondDivText}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean odio nisl, mattis et ipsum et, efficitur condimentum lorem. Mauris convallis iaculis nunc, nec elementum augue semper quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent lacinia sem quis elit sollicitudin, id vestibulum lorem laoreet.
+        </div>
+      </div>
+      <div>
+        Testing
+      </div>
     </div>;
   }
 });
