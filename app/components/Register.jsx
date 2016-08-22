@@ -17,7 +17,9 @@ const styles = {
     fontWeight: 400
   },
   loginContent: {
-    fontSize: 24
+    fontSize: 24,
+    maxWidth: '95%',
+    padding: '5%'
   }
 };
 
@@ -62,7 +64,7 @@ const Register = React.createClass({
       display: 'block'
     };
 
-    return <Paper>
+    return <div style={styles.loginContent}>
         <h2 style={styles.headline}>Register</h2>
         <TextField
           errorText={errors.email}
@@ -98,7 +100,7 @@ const Register = React.createClass({
           // value={register.confirm}
         />
 
-      </Paper>;
+      </div>;
   }
 });
 

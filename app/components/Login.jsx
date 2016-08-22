@@ -16,7 +16,9 @@ const styles = {
     fontWeight: 400
   },
   loginContent: {
-    fontSize: 24
+    fontSize: 24,
+    maxWidth: '95%',
+    padding: '5%'
   }
 };
 
@@ -61,8 +63,7 @@ const Login = React.createClass({
       display: 'block'
     };
 
-    return <div>
-      <Paper>
+    return <div style={styles.loginContent}>
         <h2 style={styles.headline}>Login</h2>
         <TextField
           errorText={errors.email}
@@ -86,7 +87,6 @@ const Login = React.createClass({
 
         // value={login.password}
       />
-    </Paper>
     </div>;
   }
 });

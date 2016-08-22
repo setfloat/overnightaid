@@ -1,10 +1,14 @@
 import { Tab, Tabs } from 'material-ui/Tabs';
 import Login from 'components/Login';
-import Paper from 'material-ui/Paper'
+import Paper from 'material-ui/Paper';
 import React from 'react';
 import Register from 'components/Register';
 
 const styles = {
+  // centering: {
+  //   marginLeft: '50%',
+  //   marginRight: '50%'
+  // },
   headline: {
     fontSize: 24,
     paddingTop: 16,
@@ -17,9 +21,11 @@ const styles = {
   tabponent: {
     marginTop: '50',
     marginLeft: '50',
+    marginRight: '50',
     paddingBottom: '40',
     maxWidth: '700',
-    width: '100%'
+    width: 'viewPort',
+    alignContent: 'centerAlign'
   }
 };
 
