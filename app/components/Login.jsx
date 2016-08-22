@@ -1,7 +1,7 @@
 import Joi from 'joi';
-import Paper from 'material-ui/Paper';
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import classNames from 'classnames';
 
 const schema = Joi.object({
   email: Joi.string().trim().min(3).max(255),
@@ -58,6 +58,16 @@ const Login = React.createClass({
   },
 
   render() {
+    const lrgBtnClassNames = classNames({
+      btnLarge: true,
+      wavesEffect: true
+    });
+
+    const styleFlexMain = {
+      fontSize: 24,
+      marginBottom: '50px'
+    };
+
     const { login, errors } = this.state;
     const styleTextField = {
       display: 'block'
@@ -86,6 +96,12 @@ const Login = React.createClass({
         style={styleTextField}
 
         // value={login.password}
+      />
+      <input
+        className={lrgBtnClassNames}
+        style={styleFlexMain}
+        type="button"
+        value="Login"
       />
     </div>;
   }

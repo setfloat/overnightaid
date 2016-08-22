@@ -1,7 +1,7 @@
 import Joi from 'joi';
-import Paper from 'material-ui/Paper';
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import classNames from 'classnames';
 
 const schema = Joi.object({
   email: Joi.string().trim().min(3).max(255),
@@ -59,48 +59,63 @@ const Register = React.createClass({
   },
 
   render() {
+    const lrgBtnClassNames = classNames({
+      btnLarge: true,
+      wavesEffect: true
+    });
+
+    const styleFlexMain = {
+      fontSize: 24,
+      marginBottom: '50px'
+    };
+
     const { register, errors } = this.state;
     const styleTextField = {
       display: 'block'
     };
 
     return <div style={styles.loginContent}>
-        <h2 style={styles.headline}>Register</h2>
-        <TextField
-          errorText={errors.email}
-          floatingLabelText="Email"
-          fullWidth={true}
-          name="email"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+      <h2 style={styles.headline}>Register</h2>
+      <TextField
+        errorText={errors.email}
+        floatingLabelText="Email"
+        fullWidth={true}
+        name="email"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={register.email}
-        />
-        <TextField
-          errorText={errors.password}
-          floatingLabelText="Password"
-          fullWidth={true}
-          name="password"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+        // value={register.email}
+      />
+      <TextField
+        errorText={errors.password}
+        floatingLabelText="Password"
+        fullWidth={true}
+        name="password"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={register.password}
-        />
-        <TextField
-          errorText={errors.confirm}
-          floatingLabelText="Confirm Password"
-          fullWidth={true}
-          name="confirm"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+        // value={register.password}
+      />
+      <TextField
+        errorText={errors.confirm}
+        floatingLabelText="Confirm Password"
+        fullWidth={true}
+        name="confirm"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={register.confirm}
-        />
-
-      </div>;
+        // value={register.confirm}
+      />
+      <input
+        className={lrgBtnClassNames}
+        style={styleFlexMain}
+        type="button"
+        value="Register"
+      />
+    </div>;
   }
 });
 

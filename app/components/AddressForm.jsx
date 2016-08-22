@@ -2,6 +2,7 @@ import Joi from 'joi';
 import Paper from 'material-ui/Paper';
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import classNames from 'classnames';
 
 const schema = Joi.object({
   addressFullName: Joi.string().trim().max(255),
@@ -62,6 +63,15 @@ const AddressForm = React.createClass({
   },
 
   render() {
+    const lrgBtnClassNames = classNames({
+      btnLarge: true,
+      wavesEffect: true
+    });
+
+    const styleFlexMain = {
+      fontSize: 24,
+      marginBottom: '50px'
+    };
     const { address, errors } = this.state;
 
     console.log(address);
@@ -142,6 +152,12 @@ const AddressForm = React.createClass({
           style={styleTextField}
 
           // value={address.addressZip}
+        />
+        <input
+          className={lrgBtnClassNames}
+          style={styleFlexMain}
+          type="button"
+          value="Shipping"
         />
       </Paper>
     </main>;
