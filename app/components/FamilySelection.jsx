@@ -1,7 +1,13 @@
 import Paper from 'material-ui/Paper';
 import React from 'react';
+import { withRouter } from 'react-router';
 
 const FamilySelection = React.createClass({
+  handleFamilySelectionTouchTap(event) {
+    this.props.updateFamilySelection(event.target.textContent);
+    this.props.router.push('/order/items');
+  },
+
   render() {
     const stylePaper = {
       backgroundImage: 'url(familyBackground.png)',
@@ -43,8 +49,10 @@ const FamilySelection = React.createClass({
         {familyArray.map((amount, index) => {
           return <Paper
             key={index}
+            onTouchTap={this.handleFamilySelectionTouchTap}
             rounded={true}
             style={stylePaper}
+            value={amount}
             zDepth={3}
           >
             <div>
@@ -57,4 +65,4 @@ const FamilySelection = React.createClass({
   }
 });
 
-export default FamilySelection;
+export default withRouter(FamilySelection);

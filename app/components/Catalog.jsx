@@ -6,7 +6,8 @@ const Catalog = React.createClass({
       {React.cloneElement(this.props.children, {
         items: this.props.items,
         cart: this.props.cart,
-        familySize: this.props.familySize
+        familySize: this.props.familySize,
+        updateFamilySelection: this.props.updateFamilySelection
       })}
     </div>;
   }

@@ -23,6 +23,10 @@ const App = React.createClass({
       });
   },
 
+  updateFamilySelection(amount) {
+    this.setState({ familySize: amount });
+  },
+
   handleLoginTouchTap() {
     this.props.router.push('/login');
   },
@@ -58,7 +62,8 @@ const App = React.createClass({
       {React.cloneElement(this.props.children, {
         items: this.state.items,
         cart: this.state.cart,
-        familySize: this.state.familySize
+        familySize: this.state.familySize,
+        updateFamilySelection: this.updateFamilySelection
       })}
     </div>;
   }
