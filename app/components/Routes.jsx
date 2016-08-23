@@ -3,7 +3,6 @@ import AddOns from 'components/AddOns';
 import App from 'components/App';
 import Catalog from 'components/Catalog';
 import Checkout from 'components/Checkout';
-import ConfirmCart from 'components/ConfirmCart';
 import ConfirmOrder from 'components/ConfirmOrder';
 import FamilySize from 'components/FamilySize';
 import Home from 'components/Home';
@@ -24,7 +23,6 @@ const Routes = React.createClass({
         </Route>
         <Route component={UserAuth} path="login" />
         <Route component={Checkout} path="checkout">
-          {/* <Route component={ConfirmCart} path="confirm-cart" /> */}
           <Route component={ConfirmOrder} path="confirm-order" />
           <Route component={OrderPlaced} path="confirmation" />
         </Route>
