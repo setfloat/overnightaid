@@ -46,7 +46,7 @@ const AddOns = React.createClass({
     };
 
     return <div>
-      <Paper
+      <div
         style={styles.tabponent}
         zDepth={3}
       >
@@ -217,7 +217,7 @@ const AddOns = React.createClass({
             value="Correct"
           />
         </Paper>
-      </Paper>
+      </div>
     </div>;
   }
 });
