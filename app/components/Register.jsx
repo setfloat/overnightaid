@@ -24,13 +24,6 @@ const styles = {
 };
 
 const Register = React.createClass({
-  getInitialState() {
-    return {
-      register: this.props.register,
-      errors: {}
-    };
-  },
-
   handleBlur(event) {
     const { name, value } = event.target;
     const nextErrors = Object.assign({}, this.state.errors);

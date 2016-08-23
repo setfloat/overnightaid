@@ -30,20 +30,39 @@ const styles = {
 };
 
 const UserAuth = React.createClass({
+  getInitialState() {
+    return {
+      login: {
+        email: '',
+        password: ''
+      },
+      register: {
+        email: '',
+        password: '',
+        confirm: ''
+      },
+      errors: {}
+    };
+  },
 
   render() {
     return <div>
       <Paper style={styles.tabponent} zDepth={5}>
         <Tabs>
-
           <Tab data-route="/Login" label="Login">
             <div style={styles.loginForm}>
-              <Login />
+              <Login
+                errors={this.state.errors}
+                userInfo={this.state.login}
+              />
             </div>
           </Tab>
           <Tab data-route="/Register" label="Register">
             <div style={styles.loginForm}>
-              <Register />
+              <Register
+                errors={this.state.errors}
+                userInfo={this.state.register}
+              />
             </div>
           </Tab>
         </Tabs>
