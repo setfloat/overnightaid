@@ -54,7 +54,7 @@ const UserAuth = React.createClass({
       .then((res) => {
         console.log(res);
         // this.setState({ nextLogin: res.data });
-        this.props.router.push('/Catalog')
+        this.props.router.push('/order')
       })
       .catch((err) => {
         next(err);

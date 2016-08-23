@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 const Home = React.createClass({
   handleActionButtonTouchTap() {
-    this.props.router.push('/catalog');
+    this.props.router.push('/order');
   },
 
   render() {

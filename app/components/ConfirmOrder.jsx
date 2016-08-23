@@ -43,7 +43,7 @@ const ConfirmOrder = React.createClass({
     axios.post('/api/orders', this.state.address, this.state.cart)
     .then((res) => {
       this.props.updateOrderId(res.data);
-      this.props.router.push('/catalog/confirmation');
+      this.props.router.push('/checkout/confirmation');
     })
     .catch((err) => {
       console.error(err);
