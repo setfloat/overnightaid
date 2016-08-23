@@ -25,7 +25,7 @@ const styles = {
 const Login = React.createClass({
   getInitialState() {
     return {
-      login: this.props.login,
+      login: {},
       errors: {}
     };
   },
