@@ -24,7 +24,10 @@ const styles = {
 
 const ConfirmOrder = React.createClass({
   render() {
-    return <AddressForm />
+    return <div>
+      <AddressForm />
+      {/* <Order /> */}
+    </div>;
   }
 });
 
