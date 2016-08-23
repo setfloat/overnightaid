@@ -1,7 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
+import { withRouter } from 'react-router';
 
 const Home = React.createClass({
+  handleActionButtonTouchTap() {
+    this.props.router.push('/catalog');
+  },
+
   render() {
     const styleMainDiv = {
       backgroundImage: 'url(support.jpg)',
@@ -56,6 +61,7 @@ const Home = React.createClass({
         <div className="title" style={styleFlexMain}>Lorem Ipsum</div>
         <input
           className={lrgBtnClassNames}
+          onTouchTap={this.handleActionButtonTouchTap}
           style={styleFlexMain}
           type="button"
           value="Place An Order"
@@ -97,4 +103,4 @@ const Home = React.createClass({
   }
 });
 
-export default Home;
+export default withRouter(Home);

@@ -7,26 +7,59 @@ import { withRouter } from 'react-router';
 const App = React.createClass({
   getInitialState() {
     return {
-      address: {
-        addressFullName: '',
-        addressLine1: 'HelloAddy',
-        addressLine2: '',
-        addressCity: '',
-        addressZip: ''
-      },
-      editing: null
+      items: [],
+      cart: [],
+      familySize: null
     };
-    this.setState({ address, editing });
   },
+
+  componentWillMount() {
+    axios.get('/api/items')
+      .then((res) => {
+        this.setState({ items: res.data });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+
+  handleLoginTouchTap() {
+    this.props.router.push('/login');
+  },
+
+  handleTitleTouchTap() {
+    this.props.router.push('/');
+  },
+
   render() {
+    const styleFlatButton = {
+      height: '64px',
+      lineHeight: '64px'
+    };
+
+    const styleTitle = {
+      cursor: 'pointer'
+    };
+
     return <div>
       <AppBar
+        onTitleTouchTap={this.handleTitleTouchTap}
+        showMenuIconButton={false}
         title="Overnight Aid"
+        titleStyle={styleTitle}
         zDepth={2}
       >
-        <FlatButton label="Overnight Aid" />
+        <FlatButton
+          label="Login/Register"
+          onTouchTap={this.handleLoginTouchTap}
+          style={styleFlatButton}
+        />
       </AppBar>
-      {this.props.children}
+      {React.cloneElement(this.props.children, {
+        items: this.state.items,
+        cart: this.state.cart,
+        familySize: this.state.familySize
+      })}
     </div>;
   }
 });
