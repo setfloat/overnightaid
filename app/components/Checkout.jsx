@@ -1,32 +1,24 @@
-import ConfirmOrder from 'components/ConfirmOrder';
 import React from 'react';
 
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400
-  },
-  loginForm: {
-    width: '100%'
-  },
-  tabponent: {
-    marginTop: '50',
-    marginLeft: '50',
-    marginRight: '50',
-    paddingBottom: '40',
-    maxWidth: '700',
-    width: 'viewPort',
-    alignContent: 'centerAlign'
-  }
-};
-
 const Checkout = React.createClass({
+  getInitialState() {
+    return {
+      orderId: null
+    };
+  },
+
+  updateState(id) {
+    this.setState({ orderId: id });
+  },
+
   render() {
-    return <div style={styles.tabponent}>
-    <ConfirmOrder />
-    </div>
+    return <div>
+      {React.cloneElement(this.props.children, {
+        cart: this.props.cart,
+        orderId: this.state.orderId,
+        updateOrderId: this.updateState
+      })}
+    </div>;
   }
 });
 

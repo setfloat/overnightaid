@@ -79,88 +79,86 @@ const AddressForm = React.createClass({
       display: 'block'
     };
 
-    return <main>
-      <Paper
-        rounded={false}
-        style={styles.loginContent}
-        zDepth={3}
-      >
+    return <Paper
+      rounded={false}
+      style={styles.loginContent}
+      zDepth={3}
+    >
       <h3 style={styles.headline}>Shipping Address</h3>
-        <TextField
-          errorText={errors.addressFullName}
-          floatingLabelText="Full Name"
-          fullWidth={true}
-          name="addressFullName"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+      <TextField
+        errorText={errors.addressFullName}
+        floatingLabelText="Full Name"
+        fullWidth={true}
+        name="addressFullName"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={address.addressFullName}
-        />
-        <TextField
-          errorText={errors.addressLine1}
-          floatingLabelText="Address Line 1"
-          fullWidth={true}
-          name="addressLine1"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+        // value={address.addressFullName}
+      />
+      <TextField
+        errorText={errors.addressLine1}
+        floatingLabelText="Address Line 1"
+        fullWidth={true}
+        name="addressLine1"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={address.addressLine1}
-        />
-        <TextField
-          errorText={errors.addressLine2}
-          floatingLabelText="Address Line 2"
-          fullWidth={true}
-          name="addressLine2"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+        // value={address.addressLine1}
+      />
+      <TextField
+        errorText={errors.addressLine2}
+        floatingLabelText="Address Line 2"
+        fullWidth={true}
+        name="addressLine2"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={address.addressLine2}
-        />
-        <TextField
-          errorText={errors.addressCity}
-          floatingLabelText="City"
-          fullWidth={true}
-          name="addressCity"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+        // value={address.addressLine2}
+      />
+      <TextField
+        errorText={errors.addressCity}
+        floatingLabelText="City"
+        fullWidth={true}
+        name="addressCity"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={address.addressCity}
-        />
-        <TextField
-          errorText={errors.addressState}
-          floatingLabelText="State"
-          fullWidth={true}
-          name="addressState"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+        // value={address.addressCity}
+      />
+      <TextField
+        errorText={errors.addressState}
+        floatingLabelText="State"
+        fullWidth={true}
+        name="addressState"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={address.addressState}
-        />
+        // value={address.addressState}
+      />
 
-        <TextField
-          errorText={errors.addressZip}
-          floatingLabelText="Zip Code"
-          fullWidth={true}
-          name="addressZip"
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          style={styleTextField}
+      <TextField
+        errorText={errors.addressZip}
+        floatingLabelText="Zip Code"
+        fullWidth={true}
+        name="addressZip"
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        style={styleTextField}
 
-          // value={address.addressZip}
-        />
-        <input
-          className={lrgBtnClassNames}
-          style={styleFlexMain}
-          type="button"
-          value="Shipping"
-        />
-      </Paper>
-    </main>;
+        // value={address.addressZip}
+      />
+      <input
+        className={lrgBtnClassNames}
+        style={styleFlexMain}
+        type="button"
+        value="Shipping"
+      />
+    </Paper>;
   }
 });
 

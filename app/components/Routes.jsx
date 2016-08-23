@@ -23,7 +23,7 @@ const Routes = React.createClass({
         </Route>
         <Route component={UserAuth} path="login" />
         <Route component={Checkout} path="checkout">
-          <Route component={ConfirmOrder} path="confirm-order" />
+          <IndexRoute component={ConfirmOrder} />
           <Route component={OrderPlaced} path="confirmation" />
         </Route>
       </Route>
