@@ -24,6 +24,17 @@ const styles = {
 };
 
 const Register = React.createClass({
+  getInitialState() {
+    return {
+      register: {
+        email: '',
+        password: '',
+        confirm: ''
+      },
+      errors: {}
+    };
+  },
+
   handleBlur(event) {
     const { name, value } = event.target;
     const nextErrors = Object.assign({}, this.state.errors);
@@ -49,6 +60,10 @@ const Register = React.createClass({
       });
 
     this.setState({ register: nextRegister });
+  },
+
+  handleTouchTap() {
+    this.props.acceptRegister(this.state.register);
   },
 
   render() {
@@ -104,6 +119,7 @@ const Register = React.createClass({
       />
       <input
         className={lrgBtnClassNames}
+        onTouchTap={this.handleTouchTap}
         style={styleFlexMain}
         type="button"
         value="Register"

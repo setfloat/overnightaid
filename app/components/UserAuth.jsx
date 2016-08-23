@@ -3,6 +3,8 @@ import Login from 'components/Login';
 import Paper from 'material-ui/Paper';
 import React from 'react';
 import Register from 'components/Register';
+import axios from 'axios';
+import { withRouter } from 'react-router';
 
 const styles = {
   // centering: {
@@ -30,6 +32,8 @@ const styles = {
 };
 
 const UserAuth = React.createClass({
+  // { } this.props
+
   getInitialState() {
     return {
       login: {
@@ -45,6 +49,32 @@ const UserAuth = React.createClass({
     };
   },
 
+  acceptLogin(nextLogin) {
+    axios.post('/api/token', nextLogin)
+      .then((res) => {
+        console.log(res);
+        // this.setState({ nextLogin: res.data });
+        this.props.router.push('/Catalog')
+      })
+      .catch((err) => {
+        next(err);
+      });
+  },
+
+  acceptRegister(nextRegister) {
+    axios.post('/api/users', nextRegister)
+      .then((res) => {
+        this.acceptLogin(nextRegister);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // const nextRegister = this.state.register;
+    //
+    // this.setState({ register: nextRegister });
+  },
+
   render() {
     return <div>
       <Paper style={styles.tabponent} zDepth={5}>
@@ -52,6 +82,7 @@ const UserAuth = React.createClass({
           <Tab data-route="/Login" label="Login">
             <div style={styles.loginForm}>
               <Login
+                acceptLogin={this.acceptLogin}
                 errors={this.state.errors}
                 userInfo={this.state.login}
               />
@@ -60,6 +91,7 @@ const UserAuth = React.createClass({
           <Tab data-route="/Register" label="Register">
             <div style={styles.loginForm}>
               <Register
+                acceptRegister={this.acceptRegister}
                 errors={this.state.errors}
                 userInfo={this.state.register}
               />
@@ -71,4 +103,4 @@ const UserAuth = React.createClass({
   }
 });
 
-export default UserAuth;
+export default withRouter(UserAuth);

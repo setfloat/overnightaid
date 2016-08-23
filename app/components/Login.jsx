@@ -25,7 +25,10 @@ const styles = {
 const Login = React.createClass({
   getInitialState() {
     return {
-      login: this.props.login,
+      login: {
+        email: '',
+        password: ''
+      },
       errors: {}
     };
   },
@@ -57,6 +60,10 @@ const Login = React.createClass({
     this.setState({ login: nextLogin });
   },
 
+  handleTouchTap() {
+    this.props.acceptLogin(this.state.login);
+  },
+
   render() {
     const lrgBtnClassNames = classNames({
       btnLarge: true,
@@ -83,8 +90,7 @@ const Login = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={login.email}
+        value={login.email}
       />
       <TextField
         errorText={errors.password}
@@ -94,11 +100,11 @@ const Login = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={login.password}
+        value={login.password}
       />
       <input
         className={lrgBtnClassNames}
+        onTouchTap={this.handleTouchTap}
         style={styleFlexMain}
         type="button"
         value="Login"
