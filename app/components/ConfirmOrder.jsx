@@ -51,21 +51,21 @@ const ConfirmOrder = React.createClass({
   },
 
   render() {
-    const styleAddressFormDiv = {
-      marginTop: '50px',
-      marginLeft: '50px',
-      marginRight: '50px',
-      paddingBottom: '40px',
-      maxWidth: '700px',
-      width: 'viewPort',
-      alignContent: 'centerAlign'
-    };
+    // const styleAddressFormDiv = {
+    //   marginTop: '50px',
+    //   marginLeft: '50px',
+    //   marginRight: '50px',
+    //   paddingBottom: '40px',
+    //   maxWidth: '700px',
+    //   width: 'viewPort',
+    //   alignContent: 'centerAlign'
+    // };
 
     const styleFlexMain = {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-around',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       alignContent: 'center',
       flexWrap: 'nowrap'
     };
@@ -75,13 +75,21 @@ const ConfirmOrder = React.createClass({
       wavesEffect: true
     });
 
-    return <main>
+    const styleMain = {
+      marginTop: '10vh'
+    };
+
+    const styleDivs = {
+      width: '100px'
+    };
+
+    return <main style={styleMain}>
       <div style={styleFlexMain}>
-        <div style={styleAddressFormDiv}>
-          <AddressForm />
+        <div>
+          <AddressForm style={styleDivs} />
         </div>
-        <div style={styleAddressFormDiv}>
-          <Order />
+        <div>
+          <Order style={styleDivs} />
         </div>
       </div>
       <input

@@ -8,7 +8,13 @@ const Order = React.createClass({
       fontSize: '36px',
       paddingTop: '16px',
       marginBottom: '12px',
-      fontWeight: '400px'
+      fontWeight: 400
+    };
+
+    const stylePaper = {
+      // fontSize: 24,
+      // maxWidth: '95%',
+      // padding: '5%'
     };
 
     const cart = [
@@ -25,7 +31,7 @@ const Order = React.createClass({
       }
     ];
 
-    return <Paper>
+    return <Paper style={stylePaper}>
       <h3 style={styleHeadline}>Cart</h3>
       {cart.map((item, index) => {
         if (item.size) {
