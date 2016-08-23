@@ -3,6 +3,7 @@ body {
   min-height: 100%;
 }
 
+// Patrick - ?
 .flex-container {
     display:flex;
     flex-direction: row;
@@ -13,19 +14,21 @@ body {
     // vertical-align: middle;
 }
 
-
+// Patrick - ?
 .flex-items {
     justify-content: center;
     align-content: center;
 }
 
- .flex-item {
+// Patrick - ?
+.flex-item {
    display: flex;
     justify-content: center;
     align-content: center;
     vertical-align: middle;
 }
 
+// Natasha - Home
 .btnLarge {
   font-size: 1.3em;
   text-decoration: none;
@@ -46,6 +49,7 @@ body {
   cursor: pointer;
 }
 
+// Natasha - Home
 .wavesEffect {
   position: relative;
   cursor: pointer;
@@ -58,15 +62,17 @@ body {
   transition: .3s;
 }
 
+// Natasha - Home
 .title {
   font-size: 6em;
 }
 
-// .packageImg {
-//   display: inherit;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   align-items: center;
-//   align-content: space-between;
-//   flex-wrap: nowrap;
-// }
+// Natasha - Home
+.secondDivColor {
+  background-color: #eea159;
+}
+
+// Natasha - Home
+.thirdDivColor {
+  background-color: purple;
+}

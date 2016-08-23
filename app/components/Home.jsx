@@ -26,13 +26,12 @@ const Home = React.createClass({
     });
 
     const styleSecondDiv = {
-      backgroundColor: 'orange',
       display: 'flex',
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      alignContent: 'space-between',
+      alignContent: 'center',
       flexWrap: 'nowrap'
     };
 
@@ -41,8 +40,15 @@ const Home = React.createClass({
       width: '30em'
     };
 
+    const stylePackageImg2 = {
+      height: '100%',
+      width: '40em'
+    };
+
     const styleSecondDivText = {
-      fontSize: '1.7em'
+      fontSize: '1.7em',
+      paddingLeft: '1vw',
+      paddingRight: '1vw'
     };
 
     return <div>
@@ -55,19 +61,37 @@ const Home = React.createClass({
           value="Place An Order"
         />
       </div>
-      <div style={styleSecondDiv}>
+      <div className="secondDivColor" style={styleSecondDiv}>
         <div className="packageImg">
           <img
             src="./packages.png"
             style={stylePackageImg}
           />
         </div>
-        <div className="packageImg" style={styleSecondDivText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean odio nisl, mattis et ipsum et, efficitur condimentum lorem. Mauris convallis iaculis nunc, nec elementum augue semper quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent lacinia sem quis elit sollicitudin, id vestibulum lorem laoreet.
+        <div style={styleSecondDivText}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean odio nisl, mattis et ipsum et, efficitur condimentum lorem.
+          Mauris convallis iaculis nunc, nec elementum augue semper quis.
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+          posuere cubilia Curae; Praesent lacinia sem quis elit sollicitudin,
+          id vestibulum lorem laoreet.
         </div>
       </div>
-      <div>
-        Testing
+      <div className="thirdDivColor" style={styleSecondDiv}>
+        <div style={styleSecondDivText}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean odio nisl, mattis et ipsum et, efficitur condimentum lorem.
+          Mauris convallis iaculis nunc, nec elementum augue semper quis.
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+          posuere cubilia Curae; Praesent lacinia sem quis elit sollicitudin,
+          id vestibulum lorem laoreet.
+        </div>
+        <div>
+          <img
+            src="./supporting-blocks.png"
+            style={stylePackageImg2}
+          />
+        </div>
       </div>
     </div>;
   }
