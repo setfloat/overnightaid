@@ -1,14 +1,13 @@
-import AddOns from 'components/AddOns';
-import FamilySize from 'components/FamilySize';
-import Items from 'components/Items';
 import React from 'react';
 
 const Catalog = React.createClass({
   render() {
     return <div>
-      <FamilySize />
-      <Items />
-      <AddOns />
+      {React.cloneElement(this.props.children, {
+        items: this.props.items,
+        cart: this.props.cart,
+        familySize: this.props.familySize
+      })}
     </div>;
   }
 });
