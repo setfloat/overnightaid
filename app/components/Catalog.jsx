@@ -1,3 +1,4 @@
+import AddOns from 'components/AddOns';
 import FamilySize from 'components/FamilySize';
 import Items from 'components/Items';
 import React from 'react';
@@ -7,6 +8,7 @@ const Catalog = React.createClass({
     return <div>
       <FamilySize />
       <Items />
+      <AddOns />
     </div>;
   }
 });

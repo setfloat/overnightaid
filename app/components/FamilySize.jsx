@@ -16,25 +16,46 @@ const stylePaper = {
 const FamilySize = React.createClass({
   render() {
     return <div className="flexContainer">
-      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
-        <div className="flexItem">
-        Just Me!
-        </div>
-      </Paper>
-      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
-        <div className="flexItem">
-          We are Two!
-        </div>
-      </Paper>
-      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
-        <div className="flexItem">
-          We are Three!
-        </div>
-      </Paper>
-      <Paper className="flexItems" rounded={true} style={stylePaper} zDepth={3}>
-        <div className="flexItem">
-          Four of Us!
-        </div>
+      <Paper zDepth={3}>
+        <Paper
+          className="flexItems"
+          rounded={true}
+          style={stylePaper}
+          zDepth={3}
+        >
+          <div className="flexItem">
+          Just Me!
+          </div>
+        </Paper>
+        <Paper
+          className="flexItems"
+          rounded={true}
+          style={stylePaper} zDepth={3}
+        >
+          <div className="flexItem">
+            We are Two!
+          </div>
+        </Paper>
+        <Paper
+          className="flexItems"
+          rounded={true}
+          style={stylePaper}
+          zDepth={3}
+        >
+          <div className="flexItem">
+            We are Three!
+          </div>
+        </Paper>
+        <Paper
+          className="flexItems"
+          rounded={true}
+          style={stylePaper}
+          zDepth={3}
+        >
+          <div className="flexItem">
+            Four of Us!
+          </div>
+        </Paper>
       </Paper>
     </div>;
   }

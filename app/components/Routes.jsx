@@ -1,7 +1,6 @@
 import { IndexRoute, Route, Router, browserHistory } from 'react-router';
 import AddOns from 'components/AddOns';
 import App from 'components/App';
-import Box from 'components/Box';
 import Catalog from 'components/Catalog';
 import Checkout from 'components/Checkout';
 import ConfirmCart from 'components/ConfirmCart';
