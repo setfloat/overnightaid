@@ -87,7 +87,7 @@ const AddOns = React.createClass({
         onTouchTap={this.handleButtonTouchTap}
         style={styleFlexMain}
         type="button"
-        value="Place An Order"
+        value="Add to Cart"
       />
     </div>;
   }
