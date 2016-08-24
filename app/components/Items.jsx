@@ -1,4 +1,5 @@
 import Divider from 'material-ui/Divider';
+import FamilyItems from 'components/FamilyItems';
 import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
 import React from 'react';
@@ -33,7 +34,10 @@ const styles = {
   }
 };
 
+
+
 const Items = React.createClass({
+
   render() {
     const lrgBtnClassNames = classNames({
       btnLarge: true,
@@ -45,52 +49,32 @@ const Items = React.createClass({
       marginBottom: '50px'
     };
 
+    const userFamilySize = this.props.familySize || 5;
+    const times = [];
+
+    for (let i = 0; i < userFamilySize; i++) {
+      times.push({});
+      console.log(userFamilySize);
+    }
+
     return <div>
       <div
         style={styles.tabponent}
-        zDepth={3}
       >
         <h3 style={styles.headline}>
           Select Clothing Options
         </h3>
-        <Paper
-          rounded={false}
-          style={styles.personContent}
-          zDepth={2}
-        >
-          <h3 style={styles.headline}>Person 1</h3>
-          <SelectField onChange={this.handleChange} value={1}>
-            <MenuItem
-              default={true}
-              disabled={true}
-              primaryText="Size"
-              value={1}
-            />
-            <Divider />
-            <MenuItem primaryText="Small" value={2} />
-            <MenuItem primaryText="Medium" value={3} />
-            <MenuItem primaryText="Large" value={4} />
-          </SelectField>
-          <br />
-          <SelectField onChange={this.handleChange} value={1}>
-            <MenuItem
-              default={true}
-              disabled={true}
-              primaryText="Clothing"
-              value={1}
-            />
-            <Divider />
-            <MenuItem primaryText="Mens Styles" value={2} />
-            <MenuItem primaryText="Womens Styles" value={3} />
-          </SelectField>
-          <input
-            className={lrgBtnClassNames}
-            style={styleFlexMain}
-            type="button"
-            value="Correct"
-          />
-        </Paper>
+        {console.log(times)}
+        {times.map((item, index) => {
+          return <FamilyItems key={index} />
+        })}
       </div>
+      <input
+        className={lrgBtnClassNames}
+        style={styleFlexMain}
+        type="button"
+        value="Submit"
+      />
     </div>;
   }
 });

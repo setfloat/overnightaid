@@ -9,7 +9,7 @@ const App = React.createClass({
     return {
       items: [],
       cart: [],
-      familySize: null
+      familySize: ''
     };
   },
 
@@ -24,7 +24,9 @@ const App = React.createClass({
   },
 
   updateFamilySelection(amount) {
-    this.setState({ familySize: amount });
+    const nextAmount = Number.parseInt(amount);
+
+    this.setState({ familySize: nextAmount });
   },
 
   handleLoginTouchTap() {

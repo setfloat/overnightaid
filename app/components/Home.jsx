@@ -58,7 +58,7 @@ const Home = React.createClass({
 
     return <div>
       <div style={styleMainDiv}>
-        <div className="title" style={styleFlexMain}>Lorem Ipsum</div>
+        <div className="title" style={styleFlexMain}>Overnight Aid</div>
         <input
           className={lrgBtnClassNames}
           onTouchTap={this.handleActionButtonTouchTap}
@@ -75,22 +75,12 @@ const Home = React.createClass({
           />
         </div>
         <div style={styleSecondDivText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean odio nisl, mattis et ipsum et, efficitur condimentum lorem.
-          Mauris convallis iaculis nunc, nec elementum augue semper quis.
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-          posuere cubilia Curae; Praesent lacinia sem quis elit sollicitudin,
-          id vestibulum lorem laoreet.
+          When disaster Strikes, we Strike back.  If you have had an Emergency, we will ship you a week's supplies so you can fill your basic needs.
         </div>
       </div>
       <div className="thirdDivColor" style={styleSecondDiv}>
         <div style={styleSecondDivText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean odio nisl, mattis et ipsum et, efficitur condimentum lorem.
-          Mauris convallis iaculis nunc, nec elementum augue semper quis.
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-          posuere cubilia Curae; Praesent lacinia sem quis elit sollicitudin,
-          id vestibulum lorem laoreet.
+          Whether you've lost your home to a fire, flood, or just need to get out fast... we're there for you.  Tomorrow. Guaranteed. We ship everything in one week quantities to make things simple for you.  We offer: Food, Clothing, Baby and pet supplies and even a makeup kit.
         </div>
         <div>
           <img
