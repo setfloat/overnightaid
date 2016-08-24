@@ -75,7 +75,7 @@ const Home = React.createClass({
           />
         </div>
         <div style={styleSecondDivText}>
-          When disaster strikes, we strike back.  If you have had an emergency, we will ship you a week's supplies so you can fill your basic needs.
+          When disaster strikes, we strike back.  If you have had an emergency, we will overnight you a week's supplies so you can fill your basic needs.
         </div>
       </div>
       <div className="thirdDivColor" style={styleSecondDiv}>
