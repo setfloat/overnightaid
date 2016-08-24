@@ -51,7 +51,7 @@ const AddOns = React.createClass({
         zDepth={3}
       >
         <h3 style={styles.headline}>
-          Optionables and AddOns
+          Add-ons: Anything else you would like to order?
         </h3>
         <Paper
           rounded={false}
