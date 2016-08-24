@@ -60,11 +60,9 @@ const Items = React.createClass({
         >
           <h3 style={styles.headline}>Person 1</h3>
           <SelectField onChange={this.handleChange} value={1}>
-          {/* <SelectField
-            onChange={this.handleChange} value={this.state.value}> */}
             <MenuItem
-              default
-              disabled
+              default={true}
+              disabled={true}
               primaryText="Size"
               value={1}
             />
@@ -75,12 +73,9 @@ const Items = React.createClass({
           </SelectField>
           <br />
           <SelectField onChange={this.handleChange} value={1}>
-          {/* <SelectField
-            onChange={this.handleChange}
-            value={this.state.value}> */}
             <MenuItem
-              default
-              disabled
+              default={true}
+              disabled={true}
               primaryText="Clothing"
               value={1}
             />
@@ -95,8 +90,6 @@ const Items = React.createClass({
             value="Correct"
           />
         </Paper>
-
-
       </div>
     </div>;
   }
