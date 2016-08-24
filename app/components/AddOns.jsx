@@ -165,58 +165,12 @@ const AddOns = React.createClass({
           </h3>
           <Divider />
         </Paper>
-
-        <Paper
-          rounded={false}
-          style={styles.personContent}
-          zDepth={2}
-        >
-          <h3 style={styles.headline}>Person 1</h3>
-          <SelectField
-            onChange={this.handleChange}
-            style={{ marginLeft: '20px' }}
-            value={1}
-          >
-          {/* <SelectField
-            onChange={this.handleChange}
-            value={this.state.value}> */}
-            <MenuItem
-              default
-              disabled
-              primaryText="Size"
-              value={1}
-            />
-            <Divider />
-            <MenuItem primaryText="Small" value={2} />
-            <MenuItem primaryText="Medium" value={3} />
-            <MenuItem primaryText="Large" value={4} />
-          </SelectField>
-          <br />
-          <SelectField
-            onChange={this.handleChange}
-            style={{ marginLeft: '20px' }}
-            value={1}
-          >
-          {/* <SelectField
-            onChange={this.handleChange}
-            value={this.state.value}> */}
-            <MenuItem
-              default
-              disabled
-              primaryText="Clothing"
-              value={1}
-            />
-            <Divider />
-            <MenuItem primaryText="Mens Styles" value={2} />
-            <MenuItem primaryText="Womens Styles" value={3} />
-          </SelectField>
-          <input
-            className={lrgBtnClassNames}
-            style={styleFlexMain}
-            type="button"
-            value="Correct"
-          />
-        </Paper>
+        <input
+          className={lrgBtnClassNames}
+          style={styleFlexMain}
+          type="button"
+          value="Correct"
+        />
       </div>
     </div>;
   }
