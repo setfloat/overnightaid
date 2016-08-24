@@ -23,6 +23,12 @@ const App = React.createClass({
       });
   },
 
+  addToCart(newItems) {
+    const nextCart = this.state.cart.concat(newItems);
+
+    this.setState({ cart: nextCart });
+  },
+
   updateFamilySelection(amount) {
     const nextAmount = Number.parseInt(amount);
 
@@ -62,6 +68,7 @@ const App = React.createClass({
         />
       </AppBar>
       {React.cloneElement(this.props.children, {
+        addToCart: this.addToCart,
         items: this.state.items,
         cart: this.state.cart,
         familySize: this.state.familySize,
