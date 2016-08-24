@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 'use strict';
 
+const Lob = require('lob')('test_4738918031676198465090b9cca281ed23e');
+const axios = require('axios');
 const boom = require('boom');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const { checkAuth } = require('../middleware');
@@ -8,6 +10,7 @@ const ev = require('express-validation');
 const express = require('express');
 const knex = require('../knex');
 const validations = require('../validations/orders');
+
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -36,8 +39,16 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
   const row = decamelizeKeys(newOrder);
   let order;
 
-  knex('orders')
-    .insert(row, '*')
+  const lobAddress = Object.assign({}, newOrder);
+
+  delete lobAddress.addressFullName;
+  delete lobAddress.userId;
+
+  Lob.verification.verify(decamelizeKeys(lobAddress))
+    .then((row) => {
+      return knex('orders')
+        .insert(row, '*');
+    })
     .then((rows) => {
       order = camelizeKeys(rows[0]);
 
@@ -74,6 +85,7 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
     .then(() => {
       res.send(`${order.id}`);
     })
+
     .catch((err) => next(err));
 });
 

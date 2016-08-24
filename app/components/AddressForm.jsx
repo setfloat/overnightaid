@@ -74,16 +74,12 @@ const AddressForm = React.createClass({
     };
     const { address, errors } = this.state;
 
-    console.log(address);
+    // console.log(address);
     const styleTextField = {
       display: 'block'
     };
 
-    return <Paper
-      rounded={false}
-      style={styles.loginContent}
-      zDepth={3}
-    >
+    return <div>
       <h3 style={styles.headline}>Shipping Address</h3>
       <TextField
         errorText={errors.addressFullName}
@@ -152,13 +148,13 @@ const AddressForm = React.createClass({
 
         // value={address.addressZip}
       />
-      <input
+      {/* <input
         className={lrgBtnClassNames}
         style={styleFlexMain}
         type="button"
         value="Shipping"
-      />
-    </Paper>;
+      /> */}
+      </div>;
   }
 });
 

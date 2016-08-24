@@ -1,5 +1,6 @@
 import AddressForm from 'components/AddressForm';
 import Order from 'components/Order';
+import Paper from 'material-ui/Paper';
 import React from 'react';
 import axios from 'axios';
 import classNames from 'classnames';
@@ -24,6 +25,13 @@ import classNames from 'classnames';
 //     alignContent: 'centerAlign'
 //   }
 // };
+const styles = {
+  loginContent: {
+    fontSize: 24,
+    maxWidth: '95%',
+    padding: '5%'
+  }
+};
 
 const ConfirmOrder = React.createClass({
   getInitialState() {
@@ -34,14 +42,16 @@ const ConfirmOrder = React.createClass({
   },
 
   handleOrderButtonTouchTap() {
-    const addresIsConfirmed = false;
-
-    if (!addresIsConfirmed) {
-      return;
-    }
+    // const addressIsConfirmed = false;
+    //
+    // if (!addressIsConfirmed) {
+    //   return;
+    // }
+    console.log(this.state.address);
 
     axios.post('/api/orders', this.state.address, this.state.cart)
     .then((res) => {
+
       this.props.updateOrderId(res.data);
       this.props.router.push('/checkout/confirmation');
     })
@@ -86,18 +96,24 @@ const ConfirmOrder = React.createClass({
     return <main style={styleMain}>
       <div style={styleFlexMain}>
         <div>
-          <AddressForm style={styleDivs} />
+          <Paper
+            rounded={false}
+            style={styles.loginContent}
+            zDepth={3}
+          >
+            <AddressForm style={styleDivs} />
+            <input
+              className={lrgBtnClassNames}
+              onTouchTap={this.handleOrderButtonTouchTap}
+              type="button"
+              value="Place Order"
+            />
+          </Paper>
         </div>
         <div>
           <Order style={styleDivs} />
         </div>
       </div>
-      <input
-        className={lrgBtnClassNames}
-        // onTouchTap={handleOrderButtonTouchTap}
-        type="button"
-        value="Place Order"
-      />
     </main>;
   }
 });
