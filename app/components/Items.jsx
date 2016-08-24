@@ -51,7 +51,7 @@ const Items = React.createClass({
         zDepth={3}
       >
         <h3 style={styles.headline}>
-          Tell us about your Family
+          Select Clothing Options
         </h3>
         <Paper
           rounded={false}
