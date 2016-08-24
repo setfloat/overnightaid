@@ -1,13 +1,24 @@
 import Divider from 'material-ui/Divider';
-import classNames from 'classnames';
 import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
 import React from 'react';
 import SelectField from 'material-ui/SelectField';
+import classNames from 'classnames';
 
 const FamilyItems = React.createClass({
+  // getInitialState() {
+  //   return this.state = { value: 1 };
+  // },
 
-  handleChange() {
+  // handleChange() {
+  //
+  //   this.props.handleClothingChange();
+  // },
+  handleSizeChange(event, index, value) {
+    this.props.updateSize(this.props.person, value);
+  },
+
+  handleStyleChange(event, index, value) {
 
   },
 
@@ -51,7 +62,7 @@ const FamilyItems = React.createClass({
       zDepth={2}
     >
       <h3 style={styles.headline}>Person</h3>
-      <SelectField onChange={this.handleChange} value={1}>
+      <SelectField onChange={this.handleSizeChange} value={1}>
         <MenuItem
           default={true}
           disabled={true}

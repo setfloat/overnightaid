@@ -34,9 +34,23 @@ const styles = {
   }
 };
 
-
-
 const Items = React.createClass({
+  // getInitialState() {
+  //   return {
+  //     clothingItems: [],
+  //     clothingSelection: array of objects = family #
+  //   }
+  // }
+
+  handleClothingChange(item, updatedSize) {
+    const nextSize = this.state.
+console.log(event)
+  },
+
+  handleSizeChange() {
+
+    return this.setState({})
+  },
 
   render() {
     const lrgBtnClassNames = classNames({
@@ -49,14 +63,6 @@ const Items = React.createClass({
       marginBottom: '50px'
     };
 
-    const userFamilySize = this.props.familySize || 5;
-    const times = [];
-
-    for (let i = 0; i < userFamilySize; i++) {
-      times.push({});
-      console.log(userFamilySize);
-    }
-
     return <div>
       <div
         style={styles.tabponent}
@@ -64,9 +70,9 @@ const Items = React.createClass({
         <h3 style={styles.headline}>
           Select Clothing Options
         </h3>
-        {console.log(times)}
-        {times.map((item, index) => {
-          return <FamilyItems key={index} />
+        {console.log(this.props.familySize)}
+        {this.props.familySize.map((item, index) => {
+          return <FamilyItems handleClothingChange={this.handleClothingChange} key={index} />
         })}
       </div>
       <input
