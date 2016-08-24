@@ -50,7 +50,7 @@ const FamilyItems = React.createClass({
       style={styles.personContent}
       zDepth={2}
     >
-      <h3 style={styles.headline}>Person 1</h3>
+      <h3 style={styles.headline}>Person</h3>
       <SelectField onChange={this.handleChange} value={1}>
         <MenuItem
           default={true}
@@ -75,12 +75,6 @@ const FamilyItems = React.createClass({
         <MenuItem primaryText="Mens Styles" value={2} />
         <MenuItem primaryText="Womens Styles" value={3} />
       </SelectField>
-      <input
-        className={lrgBtnClassNames}
-        style={styleFlexMain}
-        type="button"
-        value="Correct"
-      />
     </Paper>;
   }
 });
