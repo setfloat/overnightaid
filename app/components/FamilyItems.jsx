@@ -6,32 +6,12 @@ import SelectField from 'material-ui/SelectField';
 import classNames from 'classnames';
 
 const FamilyItems = React.createClass({
-  // getInitialState() {
-  //   return this.state = { value: 1 };
-  // },
-
-  // handleChange() {
-  //
-  //   this.props.handleClothingChange();
-  // },
-  handleSizeChange(event, index, value) {
-    this.props.updateSize(this.props.person, value);
-  },
 
   handleStyleChange(event, index, value) {
 
   },
 
   render() {
-    // const lrgBtnClassNames = classNames({
-    //   btnLarge: true,
-    //   wavesEffect: true
-    // });
-    const lrgBtnClassNames = {
-      btnLarge: true,
-      wavesEffect: true
-    };
-
     const styleFlexMain = {
       fontSize: 24,
       marginBottom: '50px'
@@ -62,20 +42,20 @@ const FamilyItems = React.createClass({
       zDepth={2}
     >
       <h3 style={styles.headline}>Person</h3>
-      <SelectField onChange={this.handleSizeChange} value={1}>
+      <SelectField onChange={(event, index, value) => this.props.updateSize(this.props.item, value)} value={this.props.item.size}>
         <MenuItem
           default={true}
           disabled={true}
           primaryText="Size"
-          value={1}
+          value={''}
         />
         <Divider />
-        <MenuItem primaryText="Small" value={2} />
-        <MenuItem primaryText="Medium" value={3} />
-        <MenuItem primaryText="Large" value={4} />
+        <MenuItem primaryText="Small" value={'small'} />
+        <MenuItem primaryText="Medium" value={'medium'} />
+        <MenuItem primaryText="Large" value={'large'} />
       </SelectField>
       <br />
-      <SelectField onChange={this.handleChange} value={1}>
+      <SelectField onChange={this.handleStyleChange} value={1}>
         <MenuItem
           default={true}
           disabled={true}
@@ -83,8 +63,8 @@ const FamilyItems = React.createClass({
           value={1}
         />
         <Divider />
-        <MenuItem primaryText="Mens Styles" value={2} />
-        <MenuItem primaryText="Womens Styles" value={3} />
+        <MenuItem primaryText="Mens Styles" value={1} />
+        <MenuItem primaryText="Womens Styles" value={2} />
       </SelectField>
     </Paper>;
   }

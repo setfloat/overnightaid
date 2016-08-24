@@ -35,21 +35,32 @@ const styles = {
 };
 
 const Items = React.createClass({
-  // getInitialState() {
-  //   return {
-  //     clothingItems: [],
-  //     clothingSelection: array of objects = family #
-  //   }
-  // }
+//   getInitialState() {
+//   return {
+//     familySize = this.props.familySize;
+//   };
+// },
 
-  handleClothingChange(item, updatedSize) {
-    const nextSize = this.state.
-console.log(event)
+  updateSize(item, updatedSize) {
+    console.log(this.props.familySize);
+    // console.log(familyMember);
+    console.log(item, updatedSize);
+    const nextSize = this.props.familySize.map((familyMember) => {
+      if (item !== familyMember) {
+        console.log(familyMember);
+        console.log(this.props.familySize);
+        return familyMember;
+      }
+
+      return Object.assign({}, item, { size: updatedSize })
+    });
+
+    this.props.updateFamilySize(nextSize)
+
   },
 
-  handleSizeChange() {
+  updateStyle(item, updatedStyle) {
 
-    return this.setState({})
   },
 
   render() {
@@ -72,7 +83,12 @@ console.log(event)
         </h3>
         {console.log(this.props.familySize)}
         {this.props.familySize.map((item, index) => {
-          return <FamilyItems handleClothingChange={this.handleClothingChange} key={index} />
+          return <FamilyItems
+            key={index}
+            item={item}
+            updateSize={this.updateSize}
+            updateStyle={this.updateStyle}
+          />
         })}
       </div>
       <input

@@ -8,7 +8,8 @@ const Catalog = React.createClass({
         items: this.props.items,
         cart: this.props.cart,
         familySize: this.props.familySize,
-        updateFamilySelection: this.props.updateFamilySelection
+        updateFamilySelection: this.props.updateFamilySelection,
+        updateFamilySize: this.props.updateFamilySize
       })}
     </div>;
   }

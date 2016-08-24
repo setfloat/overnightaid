@@ -45,6 +45,11 @@ const App = React.createClass({
     this.setState({ familySize: nextFamilySize });
   },
 
+  updateFamilySize(nextFamilySize) {
+
+    this.setState({ familySize: nextFamilySize })
+  },
+
   handleLoginTouchTap() {
     this.props.router.push('/login');
   },
@@ -82,7 +87,8 @@ const App = React.createClass({
         items: this.state.items,
         cart: this.state.cart,
         familySize: this.state.familySize,
-        updateFamilySelection: this.updateFamilySelection
+        updateFamilySelection: this.updateFamilySelection,
+        updateFamilySize: this.updateFamilySize
       })}
     </div>;
   }
