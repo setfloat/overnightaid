@@ -1,6 +1,7 @@
 import AddOn from 'components/AddOn';
 import React from 'react';
 import classNames from 'classnames';
+import { withRouter } from 'react-router';
 
 const styles = {
   customWidth: {
@@ -45,6 +46,7 @@ const AddOns = React.createClass({
     });
 
     this.props.addToCart(newCartItems);
+    this.props.toCheckout();
   },
 
   updateQuantity(item, updatedQuantity) {
@@ -87,10 +89,10 @@ const AddOns = React.createClass({
         onTouchTap={this.handleButtonTouchTap}
         style={styleFlexMain}
         type="button"
-        value="Add to Cart"
+        value="Add Items to Cart"
       />
     </div>;
   }
 });
 
-export default AddOns;
+export default withRouter(AddOns);

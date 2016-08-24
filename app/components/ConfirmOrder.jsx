@@ -1,6 +1,5 @@
 import AddressForm from 'components/AddressForm';
 import Order from 'components/Order';
-import Paper from 'material-ui/Paper';
 import React from 'react';
 import axios from 'axios';
 import classNames from 'classnames';
@@ -25,13 +24,14 @@ import classNames from 'classnames';
 //     alignContent: 'centerAlign'
 //   }
 // };
-const styles = {
-  loginContent: {
-    fontSize: 24,
-    maxWidth: '95%',
-    padding: '5%'
-  }
-};
+// const styles = {
+//   loginContent: {
+//     fontSize: 24,
+//     maxWidth: '95%',
+//     padding: '5%',
+//     width: '300px'
+//   }
+// };
 
 const ConfirmOrder = React.createClass({
   getInitialState() {
@@ -51,7 +51,6 @@ const ConfirmOrder = React.createClass({
 
     axios.post('/api/orders', this.state.address, this.state.cart)
     .then((res) => {
-
       this.props.updateOrderId(res.data);
       this.props.router.push('/checkout/confirmation');
     })
@@ -90,28 +89,32 @@ const ConfirmOrder = React.createClass({
     };
 
     const styleDivs = {
-      width: '100px'
+      width: '45%'
+      // display: 'flex',
+      // flexDirection: 'column',
+      // justifyContent: 'space-around',
+      // alignItems: 'flex-start',
+      // alignContent: 'center',
+      // flexWrap: 'nowrap'
+    };
+
+    const styleButton = {
+      marginTop: '5%',
+      marginLeft: '35%'
     };
 
     return <main style={styleMain}>
       <div style={styleFlexMain}>
-        <div>
-          <Paper
-            rounded={false}
-            style={styles.loginContent}
-            zDepth={3}
-          >
-            <AddressForm style={styleDivs} />
-            <input
-              className={lrgBtnClassNames}
-              onTouchTap={this.handleOrderButtonTouchTap}
-              type="button"
-              value="Place Order"
-            />
-          </Paper>
-        </div>
-        <div>
-          <Order style={styleDivs} />
+        <AddressForm />
+        <div style={styleDivs}>
+          <Order cart={this.props.cart} />
+          <input
+            className={lrgBtnClassNames}
+            onTouchTap={this.handleOrderButtonTouchTap}
+            style={styleButton}
+            type="button"
+            value="Place Order"
+          />
         </div>
       </div>
     </main>;

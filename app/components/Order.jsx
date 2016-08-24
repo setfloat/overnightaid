@@ -6,36 +6,29 @@ const Order = React.createClass({
   render() {
     const styleHeadline = {
       fontSize: '36px',
-      paddingTop: '16px',
-      marginBottom: '12px',
-      fontWeight: 400
+      fontWeight: 400,
+      paddingTop: '5%',
+      marginBottom: 0
     };
 
     const stylePaper = {
-      // fontSize: 24,
-      // maxWidth: '95%',
-      // padding: '5%'
+      paddingLeft: '5%',
+      paddingRight: '5%',
+      paddingBottom: '5%'
     };
 
-    const cart = [
-      {
-        id: 1,
-        displayName: 'Toothbrush',
-        quantity: 2
-      },
-      {
-        id: 2,
-        displayName: 'Women\'s Clothes',
-        size: 'medium',
-        quantity: 1
-      }
-    ];
+    // const styleDivider = {
+    //   marginTop: 0
+    // };
 
-    return <Paper style={stylePaper}>
+    const { cart } = this.props;
+
+    return <Paper style={stylePaper} zDepth={3}>
       <h3 style={styleHeadline}>Cart</h3>
+      <Divider />
       {cart.map((item, index) => {
         if (item.size) {
-          return <div key={index}>
+          return <div key={index} style={stylePaper}>
             <div>
               <p>{item.displayName}</p>
               <p>Size: {item.size}</p>

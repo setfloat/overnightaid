@@ -16,14 +16,15 @@ const schema = Joi.object({
 const styles = {
   headline: {
     fontSize: 36,
-    paddingTop: 16,
+    paddingTop: 0,
     marginBottom: 12,
     fontWeight: 400
   },
   loginContent: {
     fontSize: 24,
-    maxWidth: '95%',
-    padding: '5%'
+    // maxWidth: '95%',
+    padding: '5%',
+    width: '45%'
   }
 };
 
@@ -79,7 +80,7 @@ const AddressForm = React.createClass({
       display: 'block'
     };
 
-    return <div>
+    return <Paper rounded={false} style={styles.loginContent} zDepth={3}>
       <h3 style={styles.headline}>Shipping Address</h3>
       <TextField
         errorText={errors.addressFullName}
@@ -154,7 +155,7 @@ const AddressForm = React.createClass({
         type="button"
         value="Shipping"
       /> */}
-      </div>;
+      </Paper>;
   }
 });
 
