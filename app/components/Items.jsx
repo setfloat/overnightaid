@@ -34,16 +34,26 @@ const styles = {
 const Items = React.createClass({
 
   handleChange() {
-    let totally = 0;
 
-    this.props.familySize.map((familyMember) => {
-      if (familyMember.gender === '' || familyMember.size === '') {
-        totally += 1;
-      }
+    const newArr = this.props.familySize.map((person) => {
+      const item = this.props.items.filter((item) => {
+          return person.gender === item.id;
+      })[0];
+
+      return Object.assign({}, item, { size: person.size, quantity: 1 })
     });
-    if (totally === 0) {
-      this.toAddons();
-    }
+
+    console.log(newArr);
+  },
+
+  pushToCart() {
+    let famArr = this.props.familySize;
+    let itemsArr = this.props.items;
+    let cartArr = this.props.cart;
+
+    console.log(famArr);
+    console.log(itemsArr);
+    console.log(cartArr);
   },
 
   toAddons() {
