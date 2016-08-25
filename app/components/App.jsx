@@ -32,10 +32,9 @@ const App = React.createClass({
   },
 
   updateFamilySelection(amount) {
-    let nextFamilySize = [];
+    const nextFamilySize = [];
 
     for (let i = 0; i < amount; i++) {
-      console.log(amount);
       nextFamilySize.push({
         size: '',
         gender: ''
