@@ -22,7 +22,7 @@ const FamilyItems = React.createClass({
         fontSize: 24,
         maxWidth: '95%',
         padding: '5%',
-        margin: '20'
+        margin: '20px'
       }
     };
 

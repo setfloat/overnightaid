@@ -15,11 +15,11 @@ const styles = {
     fontWeight: 400
   },
   tabponent: {
-    marginTop: '50',
-    marginLeft: '50',
-    marginRight: '50',
-    paddingBottom: '40',
-    maxWidth: '700',
+    marginTop: '50px',
+    marginLeft: '50px',
+    marginRight: '50px',
+    paddingBottom: '40px',
+    maxWidth: '700px',
     width: 'viewPort',
     alignContent: 'centerAlign'
   },
@@ -27,7 +27,7 @@ const styles = {
     fontSize: 24,
     maxWidth: '95%',
     padding: '5%',
-    margin: '20'
+    margin: '20px'
   }
 };
 
