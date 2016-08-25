@@ -17,7 +17,7 @@ const Catalog = React.createClass({
         updateErrorMessage: this.updateErrorMessage,
         updateFamilySelection: this.props.updateFamilySelection,
         updateFamilySize: this.props.updateFamilySize,
-        updateNotification: this.updateNotification
+        updateNotification: this.props.updateNotification
       })}
     </div>;
   }
