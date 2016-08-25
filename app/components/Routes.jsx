@@ -10,6 +10,7 @@ import Items from 'components/Items';
 import OrderPlaced from 'components/OrderPlaced';
 import React from 'react';
 import UserAuth from 'components/UserAuth';
+import WrongTurn from 'components/WrongTurn';
 
 const Routes = React.createClass({
   render() {
@@ -26,6 +27,7 @@ const Routes = React.createClass({
           <IndexRoute component={ConfirmOrder} />
           <Route component={OrderPlaced} path="confirmation" />
         </Route>
+        <Route component={WrongTurn} path="*" />
       </Route>
     </Router>;
   }
