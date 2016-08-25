@@ -56,7 +56,7 @@ const FamilySelection = React.createClass({
             zDepth={3}
           >
             <div>
-              {amount}
+              <h1>{amount}</h1>
             </div>
           </Paper>;
         })}
