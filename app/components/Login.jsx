@@ -100,6 +100,7 @@ const Login = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
+        type="password"
         value={login.password}
       />
       <input

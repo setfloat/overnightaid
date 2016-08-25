@@ -51,6 +51,7 @@ const ConfirmOrder = React.createClass({
     };
 
     const styleDivs = {
+      width: '45%'
     };
 
     const styleButton = {

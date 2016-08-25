@@ -103,8 +103,7 @@ const Register = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={register.password}
+        type="password"
       />
       <TextField
         errorText={errors.confirm}
@@ -114,8 +113,7 @@ const Register = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={register.confirm}
+        type="password"
       />
       <input
         className={lrgBtnClassNames}
