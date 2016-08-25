@@ -31,7 +31,6 @@ const styles = {
 const AddressForm = React.createClass({
   getInitialState() {
     return {
-      address: this.props.address,
       errors: {}
     };
   },
@@ -55,12 +54,12 @@ const AddressForm = React.createClass({
   },
 
   handleChange(event) {
-    const nextAddress = Object.assign({}, this.state.address,
+    const nextAddress = Object.assign({}, this.props.address,
       {
         [event.target.name]: event.target.value
       });
 
-    this.setState({ address: nextAddress });
+    this.props.updateAddress(nextAddress);
   },
 
   render() {

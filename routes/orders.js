@@ -2,7 +2,6 @@
 'use strict';
 
 const Lob = require('lob')('test_4738918031676198465090b9cca281ed23e');
-const axios = require('axios');
 const boom = require('boom');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const { checkAuth } = require('../middleware');
@@ -10,7 +9,6 @@ const ev = require('express-validation');
 const express = require('express');
 const knex = require('../knex');
 const validations = require('../validations/orders');
-
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -23,9 +21,9 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
     addressLine2,
     addressCity,
     addressState,
-    addressZip,
-    items
-  } = req.body;
+    addressZip
+  } = req.body.address;
+  const { cart } = req.body;
   const { userId } = req.token;
   const newOrder = {
     addressFullName,
@@ -44,15 +42,18 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
   delete lobAddress.addressFullName;
   delete lobAddress.userId;
 
+  console.log(cart);
+
   Lob.verification.verify(decamelizeKeys(lobAddress))
-    .then((row) => {
+    .then(() => {
+      console.log('in then of addr verification');
       return knex('orders')
         .insert(row, '*');
     })
     .then((rows) => {
       order = camelizeKeys(rows[0]);
 
-      return Promise.all(items.map((item) => {
+      return Promise.all(cart.map((item) => {
         const itemId = Number.parseInt(item.id);
         const quantity = Number.parseInt(item.quantity);
 

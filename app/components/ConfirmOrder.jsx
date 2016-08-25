@@ -4,35 +4,6 @@ import React from 'react';
 import axios from 'axios';
 import classNames from 'classnames';
 
-// const styles = {
-//   headline: {
-//     fontSize: 24,
-//     paddingTop: 16,
-//     marginBottom: 12,
-//     fontWeight: 400
-//   },
-//   loginForm: {
-//     width: '100%'
-//   },
-//   tabponent: {
-//     marginTop: '50',
-//     marginLeft: '50',
-//     marginRight: '50',
-//     paddingBottom: '40',
-//     maxWidth: '700',
-//     width: 'viewPort',
-//     alignContent: 'centerAlign'
-//   }
-// };
-// const styles = {
-//   loginContent: {
-//     fontSize: 24,
-//     maxWidth: '95%',
-//     padding: '5%',
-//     width: '300px'
-//   }
-// };
-
 const ConfirmOrder = React.createClass({
   getInitialState() {
     return {
@@ -42,14 +13,10 @@ const ConfirmOrder = React.createClass({
   },
 
   handleOrderButtonTouchTap() {
-    // const addressIsConfirmed = false;
-    //
-    // if (!addressIsConfirmed) {
-    //   return;
-    // }
-    console.log(this.state.address);
+    const { cart } = this.state;
+    const { address } = this.state;
 
-    axios.post('/api/orders', this.state.address, this.state.cart)
+    axios.post('/api/orders', { address, cart })
     .then((res) => {
       this.props.updateOrderId(res.data);
       this.props.router.push('/checkout/confirmation');
@@ -59,17 +26,11 @@ const ConfirmOrder = React.createClass({
     });
   },
 
-  render() {
-    // const styleAddressFormDiv = {
-    //   marginTop: '50px',
-    //   marginLeft: '50px',
-    //   marginRight: '50px',
-    //   paddingBottom: '40px',
-    //   maxWidth: '700px',
-    //   width: 'viewPort',
-    //   alignContent: 'centerAlign'
-    // };
+  updateAddress(nextAddress) {
+    this.setState({ address: nextAddress });
+  },
 
+  render() {
     const styleFlexMain = {
       display: 'flex',
       flexDirection: 'row',
@@ -89,13 +50,6 @@ const ConfirmOrder = React.createClass({
     };
 
     const styleDivs = {
-      width: '45%'
-      // display: 'flex',
-      // flexDirection: 'column',
-      // justifyContent: 'space-around',
-      // alignItems: 'flex-start',
-      // alignContent: 'center',
-      // flexWrap: 'nowrap'
     };
 
     const styleButton = {
@@ -105,7 +59,10 @@ const ConfirmOrder = React.createClass({
 
     return <main style={styleMain}>
       <div style={styleFlexMain}>
-        <AddressForm />
+        <AddressForm
+          address={this.state.address}
+          updateAddress={this.updateAddress}
+        />
         <div style={styleDivs}>
           <Order cart={this.props.cart} />
           <input
