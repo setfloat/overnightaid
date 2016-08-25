@@ -8,13 +8,13 @@ const Order = React.createClass({
       fontSize: '36px',
       fontWeight: 400,
       paddingTop: '5%',
-      marginBottom: 0
+      marginBottom: 15
     };
 
     const stylePaper = {
       paddingLeft: '5%',
       paddingRight: '5%',
-      paddingBottom: '5%'
+      paddingBottom: '3%'
     };
 
     // const styleDivider = {
@@ -46,6 +46,15 @@ const Order = React.createClass({
           <Divider />
         </div>;
       })}
+      <h2 style={{ textAlign: 'right' }}>
+      Total: ${cart.reduce((result, element) => {
+        if (element.category === 'optionables') {
+          return result + 10;
+        }
+
+        return result;
+      }, 30)}
+      </h2>
     </Paper>;
   }
 });
