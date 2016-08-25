@@ -17,10 +17,6 @@ const Order = React.createClass({
       paddingBottom: '3%'
     };
 
-    // const styleDivider = {
-    //   marginTop: 0
-    // };
-
     const { cart } = this.props;
 
     return <Paper style={stylePaper} zDepth={3}>

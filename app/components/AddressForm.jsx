@@ -2,7 +2,6 @@ import Joi from 'joi';
 import Paper from 'material-ui/Paper';
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import classNames from 'classnames';
 
 const schema = Joi.object({
   addressFullName: Joi.string().trim().max(255),
@@ -22,7 +21,6 @@ const styles = {
   },
   loginContent: {
     fontSize: 24,
-    // maxWidth: '95%',
     padding: '5%',
     width: '45%'
   }
@@ -63,18 +61,8 @@ const AddressForm = React.createClass({
   },
 
   render() {
-    const lrgBtnClassNames = classNames({
-      btnLarge: true,
-      wavesEffect: true
-    });
+    const { errors } = this.state;
 
-    const styleFlexMain = {
-      fontSize: 24,
-      marginBottom: '50px'
-    };
-    const { address, errors } = this.state;
-
-    // console.log(address);
     const styleTextField = {
       display: 'block'
     };
@@ -89,8 +77,6 @@ const AddressForm = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={address.addressFullName}
       />
       <TextField
         errorText={errors.addressLine1}
@@ -100,8 +86,6 @@ const AddressForm = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={address.addressLine1}
       />
       <TextField
         errorText={errors.addressLine2}
@@ -111,8 +95,6 @@ const AddressForm = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={address.addressLine2}
       />
       <TextField
         errorText={errors.addressCity}
@@ -122,8 +104,6 @@ const AddressForm = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={address.addressCity}
       />
       <TextField
         errorText={errors.addressState}
@@ -133,8 +113,6 @@ const AddressForm = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={address.addressState}
       />
 
       <TextField
@@ -145,16 +123,8 @@ const AddressForm = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={address.addressZip}
       />
-      {/* <input
-        className={lrgBtnClassNames}
-        style={styleFlexMain}
-        type="button"
-        value="Shipping"
-      /> */}
-      </Paper>;
+    </Paper>;
   }
 });
 

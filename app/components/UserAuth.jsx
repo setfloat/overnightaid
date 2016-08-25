@@ -63,10 +63,6 @@ const UserAuth = React.createClass({
       .catch((err) => {
         console.log(err);
       });
-
-    // const nextRegister = this.state.register;
-    //
-    // this.setState({ register: nextRegister });
   },
 
   render() {

@@ -78,12 +78,17 @@ const Home = React.createClass({
           />
         </div>
         <div style={styleSecondDivText}>
-          When disaster strikes, we strike back.  If you have had an emergency, we will overnight you a week's supplies so you can fill your basic needs.
+          When disaster strikes, we strike back. If you have had an emergency,
+          we will overnight you a week's supplies so you can fill your basic
+          needs.
         </div>
       </div>
       <div className="thirdDivColor" style={styleSecondDiv}>
         <div style={styleSecondDivText}>
-          Whether you've lost your home to a fire, flood, or just need to get out fast... we're there for you.  Tomorrow. Guaranteed. We ship everything in one week quantities to make things simple for you.  We offer: food, clothing, baby and pet supplies and even a makeup kit.
+          Whether you've lost your home to a fire, flood, or just need to get
+          out fast... we're there for you.  Tomorrow. Guaranteed. We ship
+          everything in one week quantities to make things simple for you. We
+          offer: food, clothing, baby and pet supplies and even a makeup kit.
         </div>
         <div>
           <img

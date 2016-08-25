@@ -62,10 +62,8 @@ app.use((_req, res) => {
 // Server side error handler
 // eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
-  console.log(err);
   // Joi error handler
   if (err.status) {
-    console.log(err.errors[0].messages);
     return res
       .status(err.status)
       .set('Content-Type', 'text/plain')

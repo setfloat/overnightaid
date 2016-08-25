@@ -77,7 +77,7 @@ const Register = React.createClass({
       marginBottom: '50px'
     };
 
-    const { register, errors } = this.state;
+    const { errors } = this.state;
     const styleTextField = {
       display: 'block'
     };
@@ -92,8 +92,6 @@ const Register = React.createClass({
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         style={styleTextField}
-
-        // value={register.email}
       />
       <TextField
         errorText={errors.password}
