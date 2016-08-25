@@ -7,10 +7,6 @@ import axios from 'axios';
 import { withRouter } from 'react-router';
 
 const styles = {
-  // centering: {
-  //   marginLeft: '50%',
-  //   marginRight: '50%'
-  // },
   headline: {
     fontSize: 24,
     paddingTop: 16,
@@ -32,8 +28,6 @@ const styles = {
 };
 
 const UserAuth = React.createClass({
-  // { } this.props
-
   getInitialState() {
     return {
       login: {
@@ -53,6 +47,7 @@ const UserAuth = React.createClass({
     axios.post('/api/token', nextLogin)
       .then((_res) => {
         this.setState({ login: {}, register: {}});
+        this.props.updateLogin();
         this.props.router.push('/order');
       })
       .catch((err) => {

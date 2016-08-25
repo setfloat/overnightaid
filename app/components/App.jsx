@@ -2,6 +2,7 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
 import axios from 'axios';
+import cookie from 'react-cookie';
 import { withRouter } from 'react-router';
 
 const App = React.createClass({
@@ -9,7 +10,8 @@ const App = React.createClass({
     return {
       items: [],
       cart: [],
-      familySize: []
+      familySize: [],
+      loggedIn: cookie.load('loggedIn')
     };
   },
 
@@ -55,6 +57,24 @@ const App = React.createClass({
     this.props.router.push('/login');
   },
 
+  handleLogoutTouchTap() {
+    axios.delete('/api/token')
+    .then(() => {
+      this.updateLogin();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },
+
+  updateLogin() {
+    this.setState({ loggedIn: cookie.load('loggedIn') });
+
+    if (!this.state.loggedIn) {
+      this.props.router.push('/');
+    }
+  },
+
   handleTitleTouchTap() {
     this.props.router.push('/');
   },
@@ -69,6 +89,23 @@ const App = React.createClass({
       cursor: 'pointer'
     };
 
+    let testing;
+
+    if (this.state.loggedIn) {
+      testing = <FlatButton
+        label="Logout"
+        onTouchTap={this.handleLogoutTouchTap}
+        style={styleFlatButton}
+      />;
+    }
+    else {
+      testing = <FlatButton
+        label="Login/Register"
+        onTouchTap={this.handleLoginTouchTap}
+        style={styleFlatButton}
+      />;
+    }
+
     return <div>
       <AppBar
         onTitleTouchTap={this.handleTitleTouchTap}
@@ -77,20 +114,18 @@ const App = React.createClass({
         titleStyle={styleTitle}
         zDepth={2}
       >
-        <FlatButton
-          label="Login/Register"
-          onTouchTap={this.handleLoginTouchTap}
-          style={styleFlatButton}
-        />
+        {testing}
       </AppBar>
       {React.cloneElement(this.props.children, {
         addToCart: this.addToCart,
         items: this.state.items,
         cart: this.state.cart,
         familySize: this.state.familySize,
+        loggedIn: this.state.loggedIn,
         updateFamilySelection: this.updateFamilySelection,
         updateFamilySize: this.updateFamilySize,
-        updateFamilyStyle: this.updateFamilyStyle
+        updateFamilyStyle: this.updateFamilyStyle,
+        updateLogin: this.updateLogin
       })}
     </div>;
   }

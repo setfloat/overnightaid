@@ -3,6 +3,7 @@ import Order from 'components/Order';
 import React from 'react';
 import axios from 'axios';
 import classNames from 'classnames';
+import { withRouter } from 'react-router';
 
 const ConfirmOrder = React.createClass({
   getInitialState() {
@@ -78,4 +79,4 @@ const ConfirmOrder = React.createClass({
   }
 });
 
-export default ConfirmOrder;
+export default withRouter(ConfirmOrder);

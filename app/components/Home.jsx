@@ -4,7 +4,10 @@ import { withRouter } from 'react-router';
 
 const Home = React.createClass({
   handleActionButtonTouchTap() {
-    this.props.router.push('/order');
+    if (this.props.loggedIn) {
+      return this.props.router.push('/order');
+    }
+    this.props.router.push('/login');
   },
 
   render() {
