@@ -28,13 +28,15 @@ const styles = {
 const AddOns = React.createClass({
   getInitialState() {
     return {
-      addOns: []
+      addOns: this.props.items.filter((item) => {
+        return item.category === 'optionables';
+      })
     };
   },
 
   componentWillReceiveProps(nextProps) {
-    const nextAddOns = nextProps.items.filter((items) => {
-      return items.category === 'optionables';
+    const nextAddOns = nextProps.items.filter((item) => {
+      return item.category === 'optionables';
     });
 
     this.setState({ addOns: nextAddOns });
