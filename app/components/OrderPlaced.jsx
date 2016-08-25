@@ -8,8 +8,7 @@ const OrderPlaced = React.createClass({
       justifyContent: 'center',
       alignItems: 'center',
       alignContent: 'center',
-      flexWrap: 'nowrap',
-      height: 'viewPort'
+      flexWrap: 'nowrap'
     };
 
     return <div style={styleFlexMain}>

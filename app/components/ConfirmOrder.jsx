@@ -43,34 +43,21 @@ const ConfirmOrder = React.createClass({
 
     const lrgBtnClassNames = classNames({
       btnLarge: true,
-      wavesEffect: true
+      wavesEffect: true,
+      confirmOrderButton: true
     });
 
-    const styleMain = {
-      marginTop: '10vh'
-    };
-
-    const styleDivs = {
-      width: '45%'
-    };
-
-    const styleButton = {
-      marginTop: '5%',
-      marginLeft: '35%'
-    };
-
-    return <main style={styleMain}>
+    return <main className="confirmOrderMain">
       <div style={styleFlexMain}>
         <AddressForm
           address={this.state.address}
           updateAddress={this.updateAddress}
         />
-        <div style={styleDivs}>
+        <div className="confirmOrderDiv">
           <Order cart={this.props.cart} />
           <input
             className={lrgBtnClassNames}
             onTouchTap={this.handleOrderButtonTouchTap}
-            style={styleButton}
             type="button"
             value="Place Order"
           />

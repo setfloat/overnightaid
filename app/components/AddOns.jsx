@@ -66,13 +66,10 @@ const AddOns = React.createClass({
   render() {
     const { addOns } = this.state;
 
-    const styleFlexMain = {
-      marginBottom: '50px'
-    };
-
     const lrgBtnClassNames = classNames({
       btnLarge: true,
-      wavesEffect: true
+      wavesEffect: true,
+      addOnsButtonMargin: true
     });
 
     return <div>
@@ -89,7 +86,6 @@ const AddOns = React.createClass({
       <input
         className={lrgBtnClassNames}
         onTouchTap={this.handleButtonTouchTap}
-        style={styleFlexMain}
         type="button"
         value="Add Items to Cart"
       />

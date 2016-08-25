@@ -116,10 +116,6 @@ const App = React.createClass({
       lineHeight: '64px'
     };
 
-    const styleTitle = {
-      cursor: 'pointer'
-    };
-
     let testing;
 
     if (this.state.loggedIn) {
@@ -139,10 +135,10 @@ const App = React.createClass({
 
     return <div>
       <AppBar
+        className="cursorPointer"
         onTitleTouchTap={this.handleTitleTouchTap}
         showMenuIconButton={false}
         title="Overnight Aid"
-        titleStyle={styleTitle}
         zDepth={2}
       >
         {testing}
