@@ -33,7 +33,8 @@ const FamilySelection = React.createClass({
       justifyContent: 'center',
       alignContent: 'center',
       flexDirection: 'column',
-      textAlign: 'center'
+      textAlign: 'center',
+      cursor: 'pointer'
     };
 
     const flexFamilyMembers = {
