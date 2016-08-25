@@ -1,10 +1,7 @@
-import Divider from 'material-ui/Divider';
 import FamilyItems from 'components/FamilyItems';
-import MenuItem from 'material-ui/MenuItem';
-import Paper from 'material-ui/Paper';
 import React from 'react';
-import SelectField from 'material-ui/SelectField';
 import classNames from 'classnames';
+import { withRouter } from 'react-router';
 
 const styles = {
   customWidth: {
@@ -35,32 +32,46 @@ const styles = {
 };
 
 const Items = React.createClass({
-//   getInitialState() {
-//   return {
-//     familySize = this.props.familySize;
-//   };
-// },
+
+  handleChange() {
+    let totally = 0;
+
+    this.props.familySize.map((familyMember) => {
+      if (familyMember.gender === '' || familyMember.size === '') {
+        totally += 1;
+      }
+    });
+    if (totally === 0) {
+      this.toAddons();
+    }
+  },
+
+  toAddons() {
+    this.props.router.push('/order/add-ons');
+  },
 
   updateSize(item, updatedSize) {
-    console.log(this.props.familySize);
-    // console.log(familyMember);
-    console.log(item, updatedSize);
     const nextSize = this.props.familySize.map((familyMember) => {
       if (item !== familyMember) {
-        console.log(familyMember);
-        console.log(this.props.familySize);
         return familyMember;
       }
 
-      return Object.assign({}, item, { size: updatedSize })
+      return Object.assign({}, item, { size: updatedSize });
     });
 
-    this.props.updateFamilySize(nextSize)
-
+    this.props.updateFamilySize(nextSize);
   },
 
   updateStyle(item, updatedStyle) {
+    const nextStyle = this.props.familySize.map((familyMember) => {
+      if (item !== familyMember) {
+        return familyMember;
+      }
 
+      return Object.assign({}, item, { gender: updatedStyle });
+    });
+
+    this.props.updateFamilyStyle(nextStyle);
   },
 
   render() {
@@ -81,11 +92,10 @@ const Items = React.createClass({
         <h3 style={styles.headline}>
           Select Clothing Options
         </h3>
-        {console.log(this.props.familySize)}
         {this.props.familySize.map((item, index) => {
           return <FamilyItems
-            key={index}
             item={item}
+            key={index}
             updateSize={this.updateSize}
             updateStyle={this.updateStyle}
           />
@@ -93,6 +103,7 @@ const Items = React.createClass({
       </div>
       <input
         className={lrgBtnClassNames}
+        onClick={this.handleChange}
         style={styleFlexMain}
         type="button"
         value="Submit"
@@ -101,4 +112,4 @@ const Items = React.createClass({
   }
 });
 
-export default Items;
+export default withRouter(Items);

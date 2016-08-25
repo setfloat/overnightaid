@@ -30,24 +30,25 @@ const App = React.createClass({
   },
 
   updateFamilySelection(amount) {
-    console.log(this.state.familySize);
     let nextFamilySize = [];
-    console.log(nextFamilySize);
 
     for (let i = 0; i < amount; i++) {
-      console.log( amount)
+      console.log(amount);
       nextFamilySize.push({
         size: '',
         gender: ''
-      })
+      });
     }
 
     this.setState({ familySize: nextFamilySize });
   },
 
   updateFamilySize(nextFamilySize) {
+    this.setState({ familySize: nextFamilySize });
+  },
 
-    this.setState({ familySize: nextFamilySize })
+  updateFamilyStyle(nextFamilySize) {
+    this.setState({ familySize: nextFamilySize });
   },
 
   handleLoginTouchTap() {
@@ -88,7 +89,8 @@ const App = React.createClass({
         cart: this.state.cart,
         familySize: this.state.familySize,
         updateFamilySelection: this.updateFamilySelection,
-        updateFamilySize: this.updateFamilySize
+        updateFamilySize: this.updateFamilySize,
+        updateFamilyStyle: this.updateFamilyStyle
       })}
     </div>;
   }

@@ -3,20 +3,10 @@ import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
 import React from 'react';
 import SelectField from 'material-ui/SelectField';
-import classNames from 'classnames';
 
 const FamilyItems = React.createClass({
 
-  handleStyleChange(event, index, value) {
-
-  },
-
   render() {
-    const styleFlexMain = {
-      fontSize: 24,
-      marginBottom: '50px'
-    };
-
     const styles = {
       customWidth: {
         width: 150
@@ -55,12 +45,12 @@ const FamilyItems = React.createClass({
         <MenuItem primaryText="Large" value={'large'} />
       </SelectField>
       <br />
-      <SelectField onChange={this.handleStyleChange} value={1}>
+      <SelectField onChange={(event, index, value) => this.props.updateStyle(this.props.item, value)} value={this.props.item.gender}>
         <MenuItem
           default={true}
           disabled={true}
           primaryText="Clothing"
-          value={1}
+          value={''}
         />
         <Divider />
         <MenuItem primaryText="Mens Styles" value={1} />
@@ -70,4 +60,4 @@ const FamilyItems = React.createClass({
   }
 });
 
-export default FamilyItems
+export default FamilyItems;
