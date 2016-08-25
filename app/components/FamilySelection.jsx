@@ -16,6 +16,7 @@ const FamilySelection = React.createClass({
     });
 
     this.props.addToCart(newCartItems);
+    this.props.updateNotification('Added Core Package Items to Cart');
     this.props.router.push('/order/items');
   },
 

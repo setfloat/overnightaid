@@ -13,11 +13,11 @@ const Catalog = React.createClass({
         items: this.props.items,
         cart: this.props.cart,
         familySize: this.props.familySize,
-        showError: this.state.showError,
         toCheckout: this.toCheckout,
         updateErrorMessage: this.updateErrorMessage,
         updateFamilySelection: this.props.updateFamilySelection,
-        updateFamilySize: this.props.updateFamilySize
+        updateFamilySize: this.props.updateFamilySize,
+        updateNotification: this.updateNotification
       })}
     </div>;
   }

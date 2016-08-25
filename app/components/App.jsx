@@ -14,7 +14,9 @@ const App = React.createClass({
       familySize: [],
       loggedIn: cookie.load('loggedIn'),
       errorMessage: '',
-      showError: false
+      showError: false,
+      notification: '',
+      showNotification: false
     };
   },
 
@@ -59,6 +61,7 @@ const App = React.createClass({
     axios.delete('/api/token')
     .then(() => {
       this.updateLogin();
+      this.updateNotification('Logged out successfully');
     })
     .catch((err) => {
       this.updateErrorMessage(err);
@@ -89,6 +92,14 @@ const App = React.createClass({
     if (!this.state.loggedIn) {
       this.props.router.push('/');
     }
+  },
+
+  updateNotification(newNotification) {
+    this.setState({ notification: newNotification, showNotification: true });
+  },
+
+  handleCloseNotification() {
+    this.setState({ showNotification: false });
   },
 
   handleCloseError() {
@@ -142,12 +153,18 @@ const App = React.createClass({
         cart: this.state.cart,
         familySize: this.state.familySize,
         loggedIn: this.state.loggedIn,
-        showError: this.state.showError,
         updateErrorMessage: this.updateErrorMessage,
         updateFamilySelection: this.updateFamilySelection,
         updateFamilySize: this.updateFamilySize,
-        updateLogin: this.updateLogin
+        updateLogin: this.updateLogin,
+        updateNotification: this.updateNotification
       })}
+      <Snackbar
+        autoHideDuration={4000}
+        message={this.state.notification}
+        onRequestClose={this.handleCloseNotification}
+        open={this.state.showNotification}
+      />
       <Snackbar
         autoHideDuration={4000}
         message={this.state.errorMessage}
