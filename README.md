@@ -40,7 +40,7 @@ Humps
 and more that you can check out in the package.json
 
 What was the most valuable piece of User feedback you received?
-Most of the user feedback we received was pretty expected but some that we didn't expect was making the mouse into a cursor in certain places.
+Most of the user feedback we received was pretty expected but some that we didn't expect was making the mouse into a cursor in certain places and not needing excess buttons.
 
 What was the biggest challenge you had to overcome?
 Partner communication
