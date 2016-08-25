@@ -15,8 +15,7 @@ const Catalog = React.createClass({
         familySize: this.props.familySize,
         toCheckout: this.toCheckout,
         updateFamilySelection: this.props.updateFamilySelection,
-        updateFamilySize: this.props.updateFamilySize,
-        updateFamilyStyle: this.props.updateFamilyStyle
+        updateFamilySize: this.props.updateFamilySize
       })}
     </div>;
   }

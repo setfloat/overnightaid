@@ -32,9 +32,7 @@ const styles = {
 };
 
 const Items = React.createClass({
-
-  handleChange() {
-
+  handleSubmit() {
     const newArr = this.props.familySize.map((person) => {
       const item = this.props.items.filter((item) => {
           return person.gender === item.id;
@@ -42,8 +40,6 @@ const Items = React.createClass({
 
       return Object.assign({}, item, { size: person.size, quantity: 1 })
     });
-
-    console.log(newArr);
   },
 
   pushToCart() {
@@ -81,7 +77,7 @@ const Items = React.createClass({
       return Object.assign({}, item, { gender: updatedStyle });
     });
 
-    this.props.updateFamilyStyle(nextStyle);
+    this.props.updateFamilySize(nextStyle);
   },
 
   render() {
@@ -104,16 +100,17 @@ const Items = React.createClass({
         </h3>
         {this.props.familySize.map((item, index) => {
           return <FamilyItems
+            count={index + 1}
             item={item}
             key={index}
             updateSize={this.updateSize}
             updateStyle={this.updateStyle}
-          />
+          />;
         })}
       </div>
       <input
         className={lrgBtnClassNames}
-        onClick={this.handleChange}
+        onClick={this.handleSubmit}
         style={styleFlexMain}
         type="button"
         value="Submit"

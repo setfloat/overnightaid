@@ -54,6 +54,26 @@ exports.seed = function(knex) {
         img_url: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
         created_at: new Date('2016-07-26 14:26:16 UTC'),
         updated_at: new Date('2016-07-26 14:26:16 UTC')
+      },
+      {
+        id: 6,
+        item_name: 'toiletry_pack',
+        display_name: 'Toiletry Pack',
+        description: 'One week\'s worth of tolietries for one person',
+        category: 'required',
+        img_url: 'http://darientimes.hanewsmedia.com/wp-content/uploads/sites/31/2016/02/toiletries1.jpg',
+        created_at: new Date('2016-07-26 14:26:16 UTC'),
+        updated_at: new Date('2016-07-26 14:26:16 UTC')
+      },
+      {
+        id: 7,
+        item_name: 'food_pack',
+        display_name: 'Food Pack',
+        description: 'One week\'s worth of canned food for one person',
+        category: 'required',
+        img_url: 'http://www.youngandraw.com/wp-content/uploads/4-Reasons-to-Avoid-Canned-Foods-Save-time-and-Money-too.jpg',
+        created_at: new Date('2016-07-26 14:26:16 UTC'),
+        updated_at: new Date('2016-07-26 14:26:16 UTC')
       }
     ])
   )
