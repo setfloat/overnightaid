@@ -10,7 +10,7 @@ injectTapEventPlugin();
 const muiTheme = getMuiTheme({
   flatButton: {
     textColor: 'honeydew',
-    buttonFilterColor: '#1AC8ED'
+    buttonFilterColor: 'rgb(120,120,222)'
   },
   palette: {
     primary1Color: '#ACACDE'
