@@ -16,6 +16,8 @@ const Checkout = React.createClass({
       {React.cloneElement(this.props.children, {
         cart: this.props.cart,
         orderId: this.state.orderId,
+        showError: this.state.showError,
+        updateErrorMessage: this.updateErrorMessage,
         updateOrderId: this.updateState
       })}
     </div>;

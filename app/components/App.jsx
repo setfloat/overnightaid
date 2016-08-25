@@ -1,6 +1,7 @@
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
+import Snackbar from 'material-ui/Snackbar';
 import axios from 'axios';
 import cookie from 'react-cookie';
 import { withRouter } from 'react-router';
@@ -11,7 +12,9 @@ const App = React.createClass({
       items: [],
       cart: [],
       familySize: [],
-      loggedIn: cookie.load('loggedIn')
+      loggedIn: cookie.load('loggedIn'),
+      errorMessage: '',
+      showError: false
     };
   },
 
@@ -21,7 +24,7 @@ const App = React.createClass({
         this.setState({ items: res.data });
       })
       .catch((err) => {
-        console.error(err);
+        this.updateErrorMessage(err);
       });
   },
 
@@ -58,8 +61,26 @@ const App = React.createClass({
       this.updateLogin();
     })
     .catch((err) => {
-      console.log(err);
+      this.updateErrorMessage(err);
     });
+  },
+
+  updateErrorMessage(newError) {
+    if (newError.response) {
+      // The request was made, but the server responded with a status code
+      // that falls out of the range of 2xx
+      this.setState({
+        errorMessage: `Error: ${newError.response.data}`,
+        showError: true
+      });
+    }
+    else {
+      // Something happened in setting up the request that triggered an Error
+      this.setState({
+        errorMessage: `Error: ${newError.message}`,
+        showError: true
+      });
+    }
   },
 
   updateLogin() {
@@ -68,6 +89,10 @@ const App = React.createClass({
     if (!this.state.loggedIn) {
       this.props.router.push('/');
     }
+  },
+
+  handleCloseError() {
+    this.setState({ showError: false });
   },
 
   handleTitleTouchTap() {
@@ -117,10 +142,18 @@ const App = React.createClass({
         cart: this.state.cart,
         familySize: this.state.familySize,
         loggedIn: this.state.loggedIn,
+        showError: this.state.showError,
+        updateErrorMessage: this.updateErrorMessage,
         updateFamilySelection: this.updateFamilySelection,
         updateFamilySize: this.updateFamilySize,
         updateLogin: this.updateLogin
       })}
+      <Snackbar
+        autoHideDuration={4000}
+        message={this.state.errorMessage}
+        onRequestClose={this.handleCloseError}
+        open={this.state.showError}
+      />
     </div>;
   }
 });

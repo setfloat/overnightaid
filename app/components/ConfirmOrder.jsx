@@ -23,7 +23,7 @@ const ConfirmOrder = React.createClass({
       this.props.router.push('/checkout/confirmation');
     })
     .catch((err) => {
-      console.error(err);
+      this.props.updateErrorMessage(err);
     });
   },
 

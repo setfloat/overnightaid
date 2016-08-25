@@ -51,7 +51,7 @@ const UserAuth = React.createClass({
         this.props.router.push('/order');
       })
       .catch((err) => {
-        console.log(err);
+        this.props.updateErrorMessage(err);
       });
   },
 
@@ -61,7 +61,7 @@ const UserAuth = React.createClass({
         this.acceptLogin(nextRegister);
       })
       .catch((err) => {
-        console.log(err);
+        this.updateErrorMessage(err);
       });
   },
 
