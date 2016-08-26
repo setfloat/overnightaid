@@ -1,50 +1,80 @@
-***NOTE: In commits PP means Pair Programming***
+#Overnight Aid
 
-What's the name of your project?
+
+\*NOTE: In commits PP means Pair Programming***
+
+##What's the name of your project?
 Overnight Aid.
 
-What problem does it solve?
+##What problem does it solve?
 It helps supply individuals with a weeks worth of clothes, toiletries, food, and other items.
 
-Who has this problem?
+##Who has this problem?
 People who maybe lost their belongings in a natural disaster or who need to get out of a toxic environment fast and do not have access to basic supplies.
 
-How does your project solve this problem?
+##How does your project solve this problem?
 We solve it by shipping basic supplies to our customers and provide additional add on packages to suit their various needs.
 
-What web APIs did it use?
+##What web APIs did it use?
 We utilized Lob (https://lob.com/) to verify the shipping address users input to our site.
 
-What technologies did it use?
+##What technologies did it use?
+
+#####Core Languages:
 JavaScript
+HTML & CSS
+
+#####Servers, Databases, Serverside dependencies
+Body-Parser
+Boom
+Express
+Express-Validation
+Humps
+Knex
+Joi
+JSON Web Token
+Morgan
 Node
+PostgreSQL
+
+#####External APIs
+Lob
+
+#####Frameworks & Libraries
 React
 Material UI
-HTML & CSS
-Babel
-Brunch
-Express
-Knex
-PostgreSQL
-Heroku
+
+#####Version Control & WorkFlow
 Git
 GitHub
-JSON Web Token
+
+#####Build Tools:
+Brunch
+Babel
+
+#####Deployment
+Heroku
+
+#####Clientside Dependencies
+Axios
+Classnames
 Joi
+Lodash
 React-Cookie
 React-Router
-Axios
+
+#####Dev-Dependencies
 Eslint
-Boom
-Body-Parser
-Morgan
-Humps
-and more that you can check out in the package.json!
 
-What was the most valuable piece of User feedback you received?
-Most of the user feedback we received was pretty expected but some that we didn't expect was making the mouse into a cursor in certain places and not needing excess buttons.
+##What was the most valuable piece of User feedback you received?
+We received some great constructive feedback from our user testing session.  We implemented a cursor change when our mouse hovered our buttons.
 
-What was the biggest challenge you had to overcome?
+We changed the login/register button to be a logout button when the user is logged in.  This also provided the functionality of the user being able to log themselves out.
+
+We had a suggestion to update the wording on our options selections, to make sure that the user knew they were receiving supplies for their pets, not actual pets. We took this a step further and added in a description about those items.
+
+
+##What was the biggest challenge you had to overcome?
 Partner communication.
 
 ---------------------------------------------------
