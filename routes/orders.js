@@ -54,7 +54,8 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
 
       return Promise.all(cart.map((item) => {
         const itemId = Number.parseInt(item.id);
-        const quantity = Number.parseInt(item.quantity);
+        // const quantity = Number.parseInt(item.quantity);
+        const quantity = 1;
 
         if (!/^small$|^medium$|^large$/.test(item.size)) {
           item.size = null;
