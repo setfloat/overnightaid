@@ -5,13 +5,14 @@ import { withRouter } from 'react-router';
 const FamilySelection = React.createClass({
   handleFamilySelectionTouchTap(event) {
     this.props.updateFamilySelection(event.target.textContent);
+    console.log(event.target.textContent);
 
     // eslint-disable-next-line array-callback-return
     const newCartItems = this.props.items.filter((item) => {
-      const nextQuantity = this.props.familySize.length;
+      // const nextQuantity = Number.parseInt(event.target.textContent);
 
       if (item.category === 'required') {
-        return Object.assign({}, item, { quantity: nextQuantity });
+        return Object.assign({}, item, { quantity: Number.parseInt(event.target.textContent) });
       }
     });
 
