@@ -24,7 +24,7 @@ const Order = React.createClass({
       <Divider />
       {cart.map((item, index) => {
         if (item.size) {
-          return <div key={index} >
+          return <div key={index}>
             <div>
               <p>{item.displayName}</p>
               <p>Size: {item.size}</p>
