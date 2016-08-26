@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 'use strict';
 
-const Lob = require('lob')('test_4738918031676198465090b9cca281ed23e');
+const Lob = require('lob')(process.ENV.LOB_APIKEY);
 const boom = require('boom');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const { checkAuth } = require('../middleware');
@@ -39,6 +39,9 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
 
   const lobAddress = Object.assign({}, newOrder);
 
+  // if( ) {
+  //   delete lobAddress.
+  // }
   delete lobAddress.addressFullName;
   delete lobAddress.userId;
 
