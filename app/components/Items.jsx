@@ -1,6 +1,7 @@
 import FamilyItems from 'components/FamilyItems';
 import React from 'react';
 import classNames from 'classnames';
+import uniqBy from 'lodash/uniqBy';
 import { withRouter } from 'react-router';
 
 const styles = {
@@ -33,23 +34,55 @@ const styles = {
 
 const Items = React.createClass({
   handleSubmit() {
+    let submitVal = true;
     const newArr = this.props.familySize.map((person) => {
       const item = this.props.items.filter((item) => {
-          return person.gender === item.id;
+        if (person.gender === ''|| person.size === '') {
+          submitVal = false;
+        }
+        return person.gender === item.id;
       })[0];
 
       return Object.assign({}, item, { size: person.size, quantity: 1 })
     });
+    console.log(submitVal);
+    console.log(newArr);
+    if (submitVal) {
+      this.removeDupes(newArr);
+      this.toAddons();
+    }
   },
 
-  pushToCart() {
-    let famArr = this.props.familySize;
-    let itemsArr = this.props.items;
-    let cartArr = this.props.cart;
+  removeDupes(newArr) {
+    let size;
+    let id;
+    const stewArr = [];
 
-    console.log(famArr);
-    console.log(itemsArr);
-    console.log(cartArr);
+    const uniqueBySizeArr = uniqBy(newArr, (elem) => {
+
+
+
+      if (elem.size !== size && elem.id !== id) {
+        stewArr.push(elem);
+      }
+
+      size = elem.size;
+      id = elem.id;
+
+    });
+
+    console.log(stewArr);
+    // const stewArr = [];
+    //
+    // for (let i = 0; i < newArr.length; i++) {
+    //   for (let j = 0; j < newArr.length; j++) {
+    //     if (newArr[i].id === stewArr[j].id &&
+    //     newArr[i].size === stewArr[j].size && i !== j) {
+    //       receiveArr.push(newArr[i]);
+    //     }
+    //   }
+    // }
+    this.props.addToCart(stewArr);
   },
 
   toAddons() {
@@ -110,7 +143,7 @@ const Items = React.createClass({
       </div>
       <input
         className={lrgBtnClassNames}
-        onClick={this.handleSubmit}
+        onTouchTap={this.handleSubmit}
         style={styleFlexMain}
         type="button"
         value="Submit"
