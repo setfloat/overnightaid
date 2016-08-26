@@ -75,7 +75,8 @@ We had a suggestion to update the wording on our options selections, to make sur
 
 
 ##What was the biggest challenge you had to overcome?
-Partner communication.
+N: Partner communication.
+P: Before coding we should have done been more focused on planning exact specifics of the structure, what the display should look like for each view, and what functionalities each action and event was expected to perform/where its results were stored.  This engendered communication struggles as we weren't explicit in what we wanted to build and on the same page about how it was going to look and work.
 
 ---------------------------------------------------
 
