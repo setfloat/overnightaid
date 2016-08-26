@@ -33,6 +33,9 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
     addressZip,
     userId
   };
+
+  console.log(userId);
+
   const row = decamelizeKeys(newOrder);
   let order;
 
