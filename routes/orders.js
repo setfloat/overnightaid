@@ -39,9 +39,6 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
 
   const lobAddress = Object.assign({}, newOrder);
 
-  // if( ) {
-  //   delete lobAddress.
-  // }
   delete lobAddress.addressFullName;
   delete lobAddress.userId;
 
