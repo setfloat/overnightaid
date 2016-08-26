@@ -1,3 +1,5 @@
+***NOTE: In commits PP means Pair Programming***
+
 What's the name of your project?
 Overnight Aid.
 
