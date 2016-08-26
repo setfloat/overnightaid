@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 'use strict';
-
-const Lob = require('lob')(process.ENV.LOB_APIKEY);
+const Lob = require('lob')(process.env.LOB_APIKEY);
 const boom = require('boom');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const { checkAuth } = require('../middleware');
