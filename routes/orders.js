@@ -1,6 +1,10 @@
 /* eslint-disable camelcase */
 'use strict';
-const Lob = require('lob')(process.env.LOB_APIKEY);
+
+const apiKey = process.env.LOB_APIKEY ||
+  'test_4738918031676198465090b9cca281ed23e';
+
+const Lob = require('lob')(apiKey);
 const boom = require('boom');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const { checkAuth } = require('../middleware');
@@ -51,8 +55,7 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
       order = camelizeKeys(rows[0]);
 
       return Promise.all(cart.map((item) => {
-        // const quantity = Number.parseInt(item.quantity);
-        const quantity = 1;
+        const quantity = Number.parseInt(item.quantity);
         const itemId = Number.parseInt(item.id);
 
         if (!/^small$|^medium$|^large$/.test(item.size)) {
