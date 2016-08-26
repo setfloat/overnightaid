@@ -71,7 +71,7 @@ app.use((err, _req, res, _next) => {
   }
 
   // Boom error handler
-  if (err.output.statusCode) {
+  if (err.output && err.output.statusCode) {
     return res
       .status(err.output.statusCode)
       .set('Content-Type', 'text/plain')

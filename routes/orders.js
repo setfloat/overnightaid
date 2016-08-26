@@ -41,6 +41,7 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
   delete lobAddress.addressFullName;
   delete lobAddress.userId;
 
+
   console.log(cart);
 
   Lob.verification.verify(decamelizeKeys(lobAddress))
@@ -60,6 +61,8 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
         if (!/^small$|^medium$|^large$/.test(item.size)) {
           item.size = null;
         }
+        console.log(quantity);
+        console.log(itemId);
 
         if (Number.isNaN(itemId) || itemId < 0 || Number.isNaN(quantity) ||
           quantity < 0) {
