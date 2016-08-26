@@ -12,7 +12,7 @@
     "node": "6.4.0"
   },
   "scripts": {
-    "heroku-postbuild": "knex migrate: latest; brunch build --production",
+    "heroku-postbuild": "knex migrate:latest; brunch build --production",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
     "resetdb": "knex migrate:rollback; knex migrate:latest; knex seed:run",
