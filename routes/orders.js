@@ -42,12 +42,8 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
   delete lobAddress.addressFullName;
   delete lobAddress.userId;
 
-
-  console.log(cart);
-
   Lob.verification.verify(decamelizeKeys(lobAddress))
     .then(() => {
-      console.log('in then of addr verification');
       return knex('orders')
         .insert(row, '*');
     })
@@ -55,15 +51,13 @@ router.post('/orders', checkAuth, ev(validations.post), (req, res, next) => {
       order = camelizeKeys(rows[0]);
 
       return Promise.all(cart.map((item) => {
-        const itemId = Number.parseInt(item.id);
         // const quantity = Number.parseInt(item.quantity);
         const quantity = 1;
+        const itemId = Number.parseInt(item.id);
 
         if (!/^small$|^medium$|^large$/.test(item.size)) {
           item.size = null;
         }
-        console.log(quantity);
-        console.log(itemId);
 
         if (Number.isNaN(itemId) || itemId < 0 || Number.isNaN(quantity) ||
           quantity < 0) {

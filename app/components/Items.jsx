@@ -1,7 +1,6 @@
 import FamilyItems from 'components/FamilyItems';
 import React from 'react';
 import classNames from 'classnames';
-import uniqBy from 'lodash/uniqBy';
 import { withRouter } from 'react-router';
 
 const styles = {
@@ -36,17 +35,19 @@ const Items = React.createClass({
   handleSubmit() {
     let submitVal = true;
     const newArr = this.props.familySize.map((person) => {
-      const itemd = this.props.items.filter((itemd) => {
-        if (person.gender === ''|| person.size === '') {
+      const newItems = this.props.items.filter((item) => {
+        if (person.gender === '' || person.size === '') {
           submitVal = false;
         }
-        return person.gender === itemd.id;
+
+        return person.gender === item.id;
       })[0];
 
-      return Object.assign({}, itemd, { size: person.size, quantity: 1 })
+      return Object.assign({}, newItems, { size: person.size, quantity: 1 });
     });
-    console.log(submitVal);
-    console.log(newArr);
+
+    // console.log(submitVal);
+    // console.log(newArr);
     if (submitVal) {
       this.removeDupes(newArr);
       this.toAddons();
@@ -84,6 +85,7 @@ const Items = React.createClass({
     //   }
     // }
     this.props.addToCart(newArr);
+
     // this.props.addToCart(stewArr);
   },
 

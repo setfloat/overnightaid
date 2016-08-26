@@ -12,7 +12,9 @@ const FamilySelection = React.createClass({
       // const nextQuantity = Number.parseInt(event.target.textContent);
 
       if (item.category === 'required') {
-        return Object.assign({}, item, { quantity: Number.parseInt(event.target.textContent) });
+        return Object.assign({}, item, {
+          quantity: Number.parseInt(event.target.textContent)
+        });
       }
     });
 
