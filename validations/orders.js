@@ -13,6 +13,7 @@ module.exports.post = {
       addressLine2: Joi.string()
         .label('Address Line 2')
         .max(255)
+        .optional()
         .trim(),
       addressCity: Joi.string()
         .label('City')
