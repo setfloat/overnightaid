@@ -20,11 +20,11 @@ We utilized Lob (https://lob.com/) to verify the shipping address users input to
 
 ##What technologies did it use?
 
-#####Core Languages:
+####Core Languages:
 JavaScript
 HTML & CSS
 
-#####Servers, Databases, Serverside dependencies
+####Servers, Databases, Serverside dependencies
 Body-Parser
 Boom
 Express
@@ -37,25 +37,25 @@ Morgan
 Node
 PostgreSQL
 
-#####External APIs
+####External APIs
 Lob
 
-#####Frameworks & Libraries
+####Frameworks & Libraries
 React
 Material UI
 
-#####Version Control & WorkFlow
+####Version Control & WorkFlow
 Git
 GitHub
 
-#####Build Tools:
+####Build Tools:
 Brunch
 Babel
 
-#####Deployment
+####Deployment
 Heroku
 
-#####Clientside Dependencies
+####Clientside Dependencies
 Axios
 Classnames
 Joi
@@ -63,7 +63,7 @@ Lodash
 React-Cookie
 React-Router
 
-#####Dev-Dependencies
+####Dev-Dependencies
 Eslint
 
 ##What was the most valuable piece of User feedback you received?
