@@ -10,10 +10,10 @@ Overnight Aid.
 It helps supply individuals with a weeks worth of clothes, toiletries, food, and other items.
 
 ##Who has this problem?
-People who maybe lost their belongings in a natural disaster or who need to get out of a toxic environment fast and do not have access to basic supplies.
+Our goal is to offer a service for people who face immediate adversity due to trying circumstances.  Whether their house has burned down, flooded, or they have a situation where they need to leave an unsafe home on a short notice.  Basic supplies are often needed in these situations and we want to provide them quickly.
 
 ##How does your project solve this problem?
-We solve it by shipping basic supplies to our customers and provide additional add on packages to suit their various needs.
+We solve it by shipping basic supplies to our customers and as well as give them a choice on other products they may need to meet the basic needs of their family.
 
 ##What web APIs did it use?
 We utilized Lob (https://lob.com/) to verify the shipping address users input to our site.
