@@ -73,9 +73,13 @@ We changed the login/register button to be a logout button when the user is logg
 
 We had a suggestion to update the wording on our options selections, to make sure that the user knew they were receiving supplies for their pets, not actual pets. We took this a step further and added in a description about those items.
 
+##What was the biggest technical challenge you had to overcome?
+Biggest challenge was figuring out where exactly responsibilities should lie in components and how to consistently provide each component with the needed information.
 
-##What was the biggest challenge you had to overcome?
-N: Partner communication.
+##What lessons did your team learn as a result of your collaboration?
+N: Have a good communication system.
+
+
 P: Before coding we should have done been more focused on planning exact specifics of the structure, what the display should look like for each view, and what functionalities each action and event was expected to perform/where its results were stored.  This engendered communication struggles as we weren't explicit in what we wanted to build and on the same page about how it was going to look and work.
 
 ---------------------------------------------------
