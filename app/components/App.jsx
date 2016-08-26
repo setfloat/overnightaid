@@ -110,8 +110,6 @@ const App = React.createClass({
     this.props.router.push('/');
   },
 
-
-
   render() {
     const styleFlatButton = {
       height: '64px',
