@@ -12,7 +12,8 @@
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
     "resetdb": "knex migrate:rollback; knex migrate:latest; knex seed:run",
-    "knex": "knex"
+    "knex": "knex",
+    "nf": "nf start"
   },
   "dependencies": {
     "axios": "^0.13.1",
@@ -48,6 +49,7 @@
     "clean-css-brunch": "^2.0.0",
     "eslint": "^3.2.2",
     "eslint-config-ryansobol": "^8.0.0",
+    "foreman": "^2.0.0",
     "javascript-brunch": "^2.0.0",
     "sass-brunch": "^2.6.3",
     "uglify-js-brunch": "^2.0.1"
