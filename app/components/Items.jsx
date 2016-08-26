@@ -36,14 +36,14 @@ const Items = React.createClass({
   handleSubmit() {
     let submitVal = true;
     const newArr = this.props.familySize.map((person) => {
-      const item = this.props.items.filter((item) => {
+      const itemd = this.props.items.filter((itemd) => {
         if (person.gender === ''|| person.size === '') {
           submitVal = false;
         }
-        return person.gender === item.id;
+        return person.gender === itemd.id;
       })[0];
 
-      return Object.assign({}, item, { size: person.size, quantity: 1 })
+      return Object.assign({}, itemd, { size: person.size, quantity: 1 })
     });
     console.log(submitVal);
     console.log(newArr);
@@ -54,24 +54,25 @@ const Items = React.createClass({
   },
 
   removeDupes(newArr) {
-    let size;
-    let id;
-    const stewArr = [];
+    // let size;
+    // let id;
+    // const stewArr = [];
+    //
+    // const uniqueBySizeArr = uniqBy(newArr, (elem) => {
+    //
+    //
+    //
+    //   if (elem.size !== size && elem.id !== id) {
+    //     stewArr.push(elem);
+    //   }
+    //
+    //   size = elem.size;
+    //   id = elem.id;
+    //
+    // });
+    //
+    // console.log(stewArr);
 
-    const uniqueBySizeArr = uniqBy(newArr, (elem) => {
-
-
-
-      if (elem.size !== size && elem.id !== id) {
-        stewArr.push(elem);
-      }
-
-      size = elem.size;
-      id = elem.id;
-
-    });
-
-    console.log(stewArr);
     // const stewArr = [];
     //
     // for (let i = 0; i < newArr.length; i++) {
@@ -82,7 +83,8 @@ const Items = React.createClass({
     //     }
     //   }
     // }
-    this.props.addToCart(stewArr);
+    this.props.addToCart(newArr);
+    // this.props.addToCart(stewArr);
   },
 
   toAddons() {
