@@ -1,7 +1,6 @@
 #Overnight Aid
 
 
-\*NOTE: In commits PP means Pair Programming***
 
 ##What's the name of your project?
 Overnight Aid.
@@ -80,9 +79,7 @@ Biggest challenge was figuring out where exactly responsibilities should lie in 
 N: Have a good communication system.
 
 
-P: Before coding we should have done been more focused on planning exact specifics of the structure, what the display should look like for each view, and what functionalities each action and event was expected to perform/where its results were stored.  This engendered communication struggles as we weren't explicit in what we wanted to build and on the same page about how it was going to look and work.
+P: Before coding we should have been more focused on planning exact specifics of the structure, what all parts of the display should look like for each view, and what functionalities each action and event were expected to perform, and where each user input was to be stored.  Not fully planning these things out engendered communication struggles as we weren't explicit in what we wanted to build and on the same page about how it was going to look and work.
 
 ---------------------------------------------------
-
-Color Scheme
-https://coolors.co/fa8072-1ac8ed-c490d1-acacde-e5fcff
+####\*NOTE: In commits PP means Pair Programming***
